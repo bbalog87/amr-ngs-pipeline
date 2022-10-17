@@ -14,3 +14,7 @@ Starting with raw NGS FASTQ files,the pipeline includes the following steps:
    
    
    - P4 - Rendering customized reports  Markdown, html, pdf, ...
+
+
+### Execution mode and compuition ressources
+ - Local, HPC?
