@@ -2,7 +2,7 @@
 A Nextflow pipeline for NGS antimicrobial resistance profiling; from raw NGS FASTQ to rendered AMR profiles.
 
 ### Pipeline with NGS FASTQ files
-Starting with raw NGS FASTQ files,the pipeline includes the following steps:
+Starting with raw NGS FASTQ files,the pipeline includes the following processes (P):
 
 - P1 - Quality Control (QC): [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) is used for visual inspection of raw reads tidentify low quality data and potential issues
 
@@ -10,10 +10,10 @@ Starting with raw NGS FASTQ files,the pipeline includes the following steps:
     Alternatively, [AQUAMIS](https://gitlab.com/bfr_bioinformatics/AQUAMIS) would replace P1 and P2.
     
  - P3: Analysis : \
-   alternative Worklows mit custamizations : [Nullarbor](https://github.com/tseemann/nullarbor), [TORMES](https://github.com/nmquijada/tormes) 
+   alternative Worklows mit custamizations : [Nullarbor](https://github.com/tseemann/nullarbor), [TORMES](https://github.com/nmquijada/tormes). 
    
    
-   - P4 - Rendering customized reports:  Markdown, html, pdf, tsv ...
+ - P4 - Rendering customized reports:  Markdown, html, pdf, tsv ...
 
 
 ### Execution mode and compuition ressources
