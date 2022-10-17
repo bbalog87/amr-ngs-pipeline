@@ -8,3 +8,9 @@ Starting with raw NGS FASTQ files,the pipeline includes the following steps:
 
 - P2 - Trimming: [Fastp](https://github.com/OpenGene/fastp) is used to trim low qaulity reads. This step also includes QC filtering.\
     Alternatively, [AQUAMIS](https://gitlab.com/bfr_bioinformatics/AQUAMIS) would replace P1 and P2.
+    
+ - P3: Analysis : \
+   alternatuve Worklows : [Nullarbor](https://github.com/tseemann/nullarbor), [TORMES](https://github.com/nmquijada/tormes), 
+   
+   
+   - P4 - Rendering customized reports  Markdown, html, pdf, ...
