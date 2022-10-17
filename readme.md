@@ -1,4 +1,4 @@
-# AmrFlow: AMR detection and proflining pipeline for bacterial isolates
+# AmrFlow: AMR detection and profiling pipeline for bacterial isolates
 A Nextflow pipeline for NGS antimicrobial resistance profiling; from raw NGS FASTQ to rendered AMR profiles.
 
 ### Pipeline with NGS FASTQ files
