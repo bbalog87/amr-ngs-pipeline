@@ -1,2 +1,2 @@
-# African assembly project
-Pipelines, code and ressources for creating a fully haplotype-resolved T2T assembly of the African catfish (Clarias gariepinus) combining PacBio HiFi, ONT long reads and Hi-C data.
+# amrFlow: AMR detection and proflining pipeline for bacterial isolates
+A Nextflow pipeline for NGS antimicrobial resistance profiling. From raw NGS FASTQ to rendered AMR profiles.
