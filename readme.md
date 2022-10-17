@@ -15,6 +15,8 @@ Starting with raw NGS FASTQ files,the pipeline includes the following processes 
    
  - P4 - Rendering customized reports:  Markdown, html, pdf, tsv ...
 
+ - P5 - Preliminary vizualizataions and statistics : R/Tidyverse
+
 
 ### Execution mode and compuition ressources
  - Local, HPC?
