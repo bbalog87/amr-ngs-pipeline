@@ -20,3 +20,5 @@ Starting with raw NGS FASTQ files,the pipeline includes the following processes 
 
 ### Execution mode and compuition ressources
  - Local/laptop or HPC?
+ - Sample laod
+ - Data volume
