@@ -18,7 +18,7 @@ Starting with raw NGS FASTQ files,the pipeline includes the following processes 
  - P5 - Preliminary vizualizataions and statistics : R/Tidyverse
 
 
-### Execution mode and compuition ressources
+### Execution mode and computing ressources
  - Local/laptop or HPC?
  - Sample laod
  - Data volume
