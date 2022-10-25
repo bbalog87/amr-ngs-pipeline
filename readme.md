@@ -17,7 +17,7 @@ Starting with raw NGS FASTQ files,the pipeline includes the following processes 
 
  - P5 - Preliminary vizualizataions and statistics : R/Tidyverse
  
- - P6 - R scripts to peform stataistical analyses
+ - P6 - R scripts to peform statistical analyses
 
 
 
