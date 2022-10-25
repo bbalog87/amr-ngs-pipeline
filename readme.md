@@ -10,12 +10,16 @@ Starting with raw NGS FASTQ files,the pipeline includes the following processes 
     Alternatively, [AQUAMIS](https://gitlab.com/bfr_bioinformatics/AQUAMIS) would replace P1 and P2.
     
  - P3: Analysis : \
-   alternative Worklows mit custamizations : [Nullarbor](https://github.com/tseemann/nullarbor), [TORMES](https://github.com/nmquijada/tormes). 
+   alternative Worklows with custamizations : [Nullarbor](https://github.com/tseemann/nullarbor), [TORMES](https://github.com/nmquijada/tormes). 
    
    
  - P4 - Rendering customized reports:  Markdown, html, pdf, tsv ...
 
  - P5 - Preliminary vizualizataions and statistics : R/Tidyverse
+ 
+ - P6 - R scripts to peform stataistical analyses
+
+
 
 
 ### Execution mode and computing ressources
