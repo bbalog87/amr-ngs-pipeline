@@ -17,9 +17,7 @@ Example usage:
 
 This script is a wrapper to perform initial QC on raw reads using the FastQC command line tool
 '''
-   
 
-This will add the date and author information to the script, and also make it visible in the Docstring.
 
 
 def main():
