@@ -11,6 +11,7 @@ from datetime import datetime
   Script: run_fastqc.py
     Author: Julien A. Nguinkal
     Date: 2023-01-21
+    Version: 1.0
 Example usage: 
     python run_fastqc.py -d /path/to/reads_dir -t 8 -o /path/to/output_dir -f /path/to/fastqc_binary
 
