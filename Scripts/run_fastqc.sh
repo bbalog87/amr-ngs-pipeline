@@ -4,12 +4,12 @@
 # Date: [2023-01-20]
 # Description: This script performs initial QC on raw reads using the FastQC command line tool
 
-# Exit immediately if any command exits with a non-zero status
+# Exit if any command exits with a non-zero status
 set -e
-# Exit immediately if any variable is unset
+# Exit if any variable is unset
 set -u
 
-# Exit immediately if any command in a pipeline exits with a non-zero status
+# Exit if any command in a pipeline exits with a non-zero status
 set -o pipefail
 
 #### Color on terminal output
