@@ -2,7 +2,7 @@
 
 # Author: Julien Nguinkal
 # Date: [2023-01-20]
-# Description: This script performs initial QC on raw reads using the FastQC command line tool
+# Description: This is a wrapper to perform initial QC on raw reads using the FastQC command line tool
 
 # Exit if any command exits with a non-zero status
 set -e
