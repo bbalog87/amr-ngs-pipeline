@@ -18,7 +18,7 @@ Starting with raw NGS FASTQ files,the pipeline includes the following processes 
  - P5 - Preliminary vizualizataions and statistics : R/Tidyverse
  
  - P6 - R scripts to peform AMR statistical data analysis : [AMR](https://github.com/msberends/AMR)
- - P7 - Integrate genomic-driven epidemiological and public health surveilance tools: [Nextstrains](https://nextstrain.org/), [Microreact](https://docs.microreact.org/)
+ - P7 - Integrate genomic with epidemiological and public health data to drive outbreak surveilance using surveillance tools such as [Nextstrains](https://nextstrain.org/), [Microreact](https://docs.microreact.org/)
 
 
 
