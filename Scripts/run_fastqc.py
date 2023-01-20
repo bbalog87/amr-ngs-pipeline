@@ -8,11 +8,17 @@ from datetime import datetime
 ### doctrsing : example usage 
 
 '''
+  Script: run_fastqc.py
+    Author: Julien A. Nguinkal
+    Date: 2023-01-21
 Example usage: 
     python run_fastqc.py -d /path/to/reads_dir -t 8 -o /path/to/output_dir -f /path/to/fastqc_binary
 
-This script performs initial QC on raw reads using the FastQC command line tool
+This script is a wrapper to perform initial QC on raw reads using the FastQC command line tool
 '''
+   
+
+This will add the date and author information to the script, and also make it visible in the Docstring.
 
 
 def main():
