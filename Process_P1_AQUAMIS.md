@@ -85,3 +85,16 @@ The --mode parameter can be set to ``illumina, ncbi, flex, or assembly`` dependi
 ## Run AQUAMIS on the input data
 
 To run AQUAMIS on the input data, use the following command:
+```ruby
+aquamis -l /path/to/samples.tsv \
+        --taxlevel_qc S \
+        -d /path/to/output_dir \
+        --min_trimmed_length 22 \
+        --threads_sample $THREADS \
+        --logdir . \
+        --kraken2db /path/to/kraken2 \
+        --taxonkit_db /path/to/taxonkit \
+        -m /path/to/mash \
+        -r run_name
+        `
+
