@@ -139,3 +139,5 @@ The script runs TORMES with the specified metadata file, output directory, and n
  
  tormes -m $META -o $OUTDIR -t $THREADS
 ```
+
+TORMES will use the metadata file to match reads and genome assemblies and perform a taxonomic classification. The output will be written to the specified output directory.
