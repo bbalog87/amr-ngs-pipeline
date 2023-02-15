@@ -80,7 +80,7 @@ aquamis -l $WorkDir/samples.tsv \
 ```
 This script will generate a samples.tsv file in the output directory.
 
-The --mode parameter can be set to ``illumina, ncbi, flex, or assembly`` depending on the format of the input files.
+The `` --mode  parameter can be set to ``illumina, ncbi, flex, or assembly`` depending on the format of the input files.
 
 ## Run AQUAMIS on the input data
 
@@ -117,7 +117,7 @@ aquamis -l /path/to/samples.tsv \
 ```
 
 
-Replace ``/path/to/samples.tsv, /path/to/output_dir, /path/to/kraken2, /path/to/taxonkit, /path/to/mash ```, and run_name with the appropriate values.
+Replace ``/path/to/samples.tsv, /path/to/output_dir, /path/to/kraken2, /path/to/taxonkit, /path/to/mash```, and run_name with the appropriate values.
 
 ```
     --taxlevel_qc: Set to S to perform species-level QC
