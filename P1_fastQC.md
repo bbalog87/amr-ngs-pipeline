@@ -10,6 +10,15 @@ assessing the quality of high-throughput sequencing data. The script checks the 
 existence, and runs FastQC on each sample in parallel using the specified number of threads.
 The output is organized in subdirectories, one for each sample.
 
+
+## Prerequisites
+
+Before running run_fastqc.sh you need to have the following software installed on your system:
+
+    - [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) version 0.11.9 or later.
+
+FastQC should be installed and in your PATH, or you should specify the path to the FastQC binary using the -f option.
+
 ## Installation
 
 You can install FastQC using conda or mamba by creating a new environment and
