@@ -15,7 +15,7 @@ The first step in the script is to set the variables that will be used throughou
  - GENOMES: The path to the directory containing the input genomes built by AQUAMIS, which are the main input to TORMES.
  - WORK_DIR: The path to the working directory for the pipeline.
 
-
+The script downloads a YAML configuration file for TORMES, which specifies the dependencies that need to be installed to run the pipeline.
 ```bash
 READS=/home/nguinkal/AMR-Workflows/TestData-reads ## path to reads (not really needed)
 
@@ -29,3 +29,21 @@ WORK_DIR=/home/nguinkal/AMR-Workflows/
 wget https://anaconda.org/nmquijada/tormes-1.3.0/2021.06.08.113021/download/tormes-1.3.0.yml
 
 ```
+The script starts by setting some variables for the input and output directories. Then, it downloads the configuration file for TORMES.
+
+## Step 2: Download TORMES Configuration
+
+
+```
+### create tormes_env, and install dependencies in tormes-1.3.0.yml 
+mamba env create -n tormes_Env --file tormes-1.3.0.yml
+
+## activate tormes environment
+conda activate tormes_Env
+
+# Additionally, the first time you are using TORMES, run (after activating TORMES environment)
+# to setup tormes
+tormes-setup
+
+```
+
