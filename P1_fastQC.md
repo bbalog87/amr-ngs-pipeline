@@ -108,4 +108,4 @@ Here are some tips for troubleshooting issues that may arise when running the sc
 
    - If the script fails to complete fastqc analysis for a sample, check the error message and make sure that both the forward and reverse reads are present and correctly named in the input directory.
 
-  - If you encounter any other issues, feel free to contact the author for assistance.
+
