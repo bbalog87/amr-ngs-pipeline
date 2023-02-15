@@ -15,7 +15,7 @@ The output is organized in subdirectories, one for each sample.
 
 Before running run_fastqc.sh you need to have the following software installed on your system:
 
-    - FastQC (https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) version 0.11.9 or later.
+ - [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) version 0.11.9 or later.
 
 FastQC should be installed and in your PATH, or you should specify the path to the FastQC binary using the -f option.
 
