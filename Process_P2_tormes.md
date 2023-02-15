@@ -57,3 +57,18 @@ conda activate tormes_Env
 tormes-setup
 
 ```
+
+
+## Step 4: TORMES Setup
+
+The script runs the tormes-setup command, which sets up TORMES by downloading and installing additional dependencies not available in Conda. 
+This step also creates a configuration file required for TORMES to function.
+
+
+```
+
+# Additionally, the first time you are using TORMES, run (after activating TORMES environment)
+# to setup tormes
+tormes-setup
+
+```
