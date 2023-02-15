@@ -127,3 +127,15 @@ paste uno.tmp dos.tmp tres.tmp cuatro.tmp | sed "1iSamples\tRead1\tRead2\tDescri
 rm *tmp
 
 ```
+
+## Step 6: Run TORMES
+
+The script runs TORMES with the specified metadata file, output directory, and number of threads.
+
+
+```R
+
+### Run Tormes now:
+ 
+ tormes -m $META -o $OUTDIR -t $THREADS
+```
