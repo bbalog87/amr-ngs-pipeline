@@ -108,4 +108,8 @@ Here are some tips for troubleshooting issues that may arise when running the sc
 
    - If the script fails to complete fastqc analysis for a sample, check the error message and make sure that both the forward and reverse reads are present and correctly named in the input directory.
 
-
+ ## Conclusion
+This script provides a simple and convenient way to perform initial QC on raw reads using the FastQC command line tool.
+ With just a few command line arguments, users can quickly and easily analyze the quality of their sequencing data 
+ and identify any potential issues.
+This script is as a starting point for QC sequencing data, before running process P2 including AQUAMIS and fastp.
