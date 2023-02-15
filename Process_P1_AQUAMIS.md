@@ -17,3 +17,7 @@ This documentation provides a step-by-step guide on how to install and set up [A
    ```bash
    git clone https://gitlab.com/bfr_bioinformatics/AQUAMIS.git && cd AQUAMIS 
    ```
+2. Create a Conda environment for AQUAMIS:
+```bash 
+mamba create -n aquamis_Env -c conda-forge -c bioconda aquamis -y 
+```
