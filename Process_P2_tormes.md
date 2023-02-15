@@ -57,6 +57,7 @@ conda activate tormes_Env
 tormes-setup
 
 ```
+This step downloads and installs additional dependencies required for TORMES and Kraken2. It also downloads the MiniKraken2 v1 8GB database required for Kraken2 to function. If the user has enough disk space and RAM power, it is recommended downloading and installing the "Standard Kraken2 Database" provided by Kraken2 developers for improved taxonomic identification.
 
 
 ## Step 4: TORMES Setup
