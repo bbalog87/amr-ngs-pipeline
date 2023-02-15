@@ -117,7 +117,7 @@ aquamis -l /path/to/samples.tsv \
 ```
 
 
-Replace ``/path/to/samples.tsv, /path/to/output_dir, /path/to/kraken2, /path/to/taxonkit, /path/to/mash```, and run_name with the appropriate values.
+Replace ``/path/to/samples.tsv, /path/to/output_dir, /path/to/kraken2, /path/to/taxonkit, /path/to/mash ```, and run_name with the appropriate values.
 
 ```
     --taxlevel_qc: Set to S to perform species-level QC
