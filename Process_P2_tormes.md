@@ -72,3 +72,15 @@ This step also creates a configuration file required for TORMES to function.
 tormes-setup
 
 ```
+
+Additionally, the following R packages may need to be installed using conda:
+
+  - ggtree
+  - knitr
+  - plotly
+  - RColorBrewer
+  - reshape2
+  - rmarkdown
+  - treeio
+
+
