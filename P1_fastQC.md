@@ -82,3 +82,16 @@ The script takes the following command line options:
    - -o <output_directory>: specifies the output directory for FastQC results. The default is ./FastQC_output.
   -  -f <fastqc_binary>: specifies the path to the FastQC binary. The default is fastqc.
    - -h: prints a help message with the script usage and options.
+
+ 
+## Error Checking
+
+The script performs error checking on the input directory, output directory, and FastQC binary. It checks that the input directory exists and is not empty, that the output directory exists or can be created, and that the FastQC binary is installed and in the PATH or specified by the user.
+ 
+## Parallel Execution
+
+The script runs FastQC on each sample in parallel using the specified number of threads. It uses the set -e, set -u, and set -o pipefail commands to ensure that any command that fails will cause the script to exit immediately.
+ 
+## Output Files
+
+The output files are organized in subdirectories, one for each sample. The subdirectories 
