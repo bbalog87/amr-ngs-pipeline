@@ -130,6 +130,8 @@ rm *tmp
 
 After creating the metadata files for the reads and genome assemblies, the script sets some parameters for TORMES, including the path to the metadata file, output directory, and number of threads to use for the analysis.
 
+```lua
+
 ### Tormes parameters
 
 META=/home/nguinkal/AMR-Workflows/myMetadataGenomes.txt
