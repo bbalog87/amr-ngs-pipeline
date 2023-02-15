@@ -1,5 +1,5 @@
 
-# AMRFinder Workflow process P3.2
+# AMRFinder process P3.2 Documentation
 
 This script installs and runs the `amrfinderplus` tool from [NCBI's Antimicrobial Resistance (AMR) GeneFinder package](https://github.com/ncbi/amr/wiki). It first creates a dedicated environment to install the tool and its dependencies using the `mamba` package manager, then downloads the latest AMR database.
 
