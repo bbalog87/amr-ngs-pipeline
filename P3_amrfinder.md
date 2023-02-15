@@ -110,7 +110,75 @@ In this process, we installed `amrfinderplus` using bioconda in a dedicated envi
 This process can be easily adapted for different sets of input files and customized based on the needs of the user.
 Additionally, it can be modified to be run on a remote server or high-performance computing cluster to process large sets of input files.
 
+## Script
 
+Here's the full script:
+
+
+#!/bin/bash
+
+# Install amrfinderplus using bioconda in a dedicated environment
+# Find more here https://github.com/ncbi/amr/wiki/Install-with-bioconda
+# Note: use mamba instead of conda
+
+mamba create -y -c bioconda -c conda-forge -n amrfinder_Env ncbi-amrfinderplus # run this only once
+
+# Activate amrfinder conda environment
+conda activate amrfinder_Env
+
+# Download latest amrfinder database
+amrfinder -u
+
+# Set TORMES_Output path and create amrfinderINPUT directory
+TORMES_ANNO=/home/nguinkal/AMR-Workflows/TORMES_Out/annotation # The output of TORMES in Process P3.
+
+# Create amrfinderINPUT directory and copy all files with extension .faa, .gff, .fna to it
+# from the specified directory.
+# If the user provides a different output directory with --output flag, it will be used instead.
+mkdir -p amrfinderINPUT
+find "$TORMES_ANNO"/ -type f \( -name "*.faa" -o -name "*.gff" -o -name "*.fna" \) -exec cp {} amrfinderINPUT/ \;
+
+# Make all files executable in amrfinderINPUT
+chmod +rwx amrfinderINPUT/*
+
+# Check if the species provided by user is part of this list
+SPECIES_LIST=(Acinetobacter_baumannii Burkholderia_cepacia \
+Burkholderia_pseudomallei Campylobacter Clostridioides_difficile \
+Enterococcus_faecalis Enterococcus_faecium Escherichia Klebsiella_oxytoca \
+Klebsiella_pneumoniae Neisseria_gonorrhoeae Neisseria_meningitidis \
+Pseudomonas_aeruginosa Salmonella Staphylococcus_aureus \
+Staphylococcus_pseudintermedius Streptococcus_agalactiae \
+Streptococcus_pneumoniae Streptococcus_pyogenes Vibrio_cholerae)
+
+# Set default output folder, input folder, number of threads, and organism
+mkdir -p AMRFinder_Out
+INPUT_FOLDER="amrfinderINPUT" # default input
+OUTDIR="AMRFinder_Out" # default output folder
+THREADS=8
+ORGANISM="Staphylococcus_aureus" # default organism
+
+# Loop through all .fna files in the input folder, run amrfinder on each one, and output the results
+for file in "${INPUT_FOLDER}"/*.fna; do
+  f=$(basename "$file")
+  echo "Processing ${f%.fna}"
+
+  # Run amrfinder on the current file
+  amrfinder -n "$file" \
+            --organism "$ORGANISM" \
+            --threads "$THREADS" \
+            --output "${OUTDIR}/${f%.fna}.amrfinder.out" \
+            --report_common --plus \
+            --name "${f%.fna}" \
+            --mutation_all "${OUTDIR}/${f%.fna}.mutations.txt"
+done
+
+# Create a directory for the mutation results
+mkdir -p amrfinder_Results
+
+# Concatenate all the mutation result files into a single file and save it in the mutation results directory
+for file in "${OUTDIR}"/*.mutations.txt; do
+  if [ ! -f mutation_amrfinder.txt ]; then
+    head -n 
 
 
 
