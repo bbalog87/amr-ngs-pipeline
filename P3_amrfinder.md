@@ -115,6 +115,7 @@ Additionally, it can be modified to be run on a remote server or high-performanc
 Here's the full script:
 
 
+```python
 #!/bin/bash
 
 # Install amrfinderplus using bioconda in a dedicated environment
