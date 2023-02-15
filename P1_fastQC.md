@@ -43,3 +43,11 @@ installing it in that environment. Here are the steps to do so:
 
 Note: The -c bioconda option specifies the Bioconda channel from which to install FastQC. 
 If you have already added the Bioconda channel to your list of channels, you can omit this option.
+
+
+## Usage
+
+The usage of the script is as follows:
+
+``run_fastqc.sh -d <directory> [-t <threads>] [-o <output_directory>] [-f <fastqc_binary>] ``
+
