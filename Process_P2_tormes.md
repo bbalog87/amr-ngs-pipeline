@@ -47,3 +47,12 @@ tormes-setup
 
 ```
 
+Step 3: Create TORMES Environment
+
+The script creates a Conda environment called tormes_Env and installs the dependencies specified in the TORMES configuration file. It then activates the TORMES environment.
+
+```
+### create tormes_env, and install dependencies in tormes-1.3.0.yml 
+mamba env create -n tormes_Env --file tormes-1.3.0.yml
+
+```
