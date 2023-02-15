@@ -109,3 +109,21 @@ The metadata file for genomes is created using the following steps:
     The paths to the corresponding genome files are obtained using realpath.
     The sample names, genome file paths, and a description are combined using paste.
     The metadata file is saved as myMetadataGenomes.txt.
+ ```   
+  ### Create metadata for reads
+# List all files in the READS directory with the suffix _1.fastq and extract the sample names from the filenames
+ls $READS/*_1* | sed "s/.*\///" | sed "s/_1.fastq//" > uno.tmp
+
+# Generate the full paths to the read files for each sample and output to dos.tmp and tres.tmp
+for i in $(<uno.tmp); do realpath $READ/${i}_1.fastq >> dos.tmp; realpath $READ/${i}_2.fastq >> tres.tmp; done
+
+# Add a description to each sample and output to cuatro.tmp
+for i in $(<uno.tmp); do echo "This is ${i}" >> cuatro.tmp; done
+
+# Combine the metadata into a single file and add column headers
+paste uno.tmp dos.tmp tres.tmp cuatro.tmp | sed "1iSamples\tRead1\tRead2\tDescription" > $WORK_DIR/myMetadataReads.txt
+
+# Remove temporary files
+rm *tmp
+
+```
