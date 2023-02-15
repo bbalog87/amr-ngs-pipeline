@@ -51,6 +51,7 @@ The usage of the script is as follows:
 
 ``run_fastqc.sh -d <directory> [-t <threads>] [-o <output_directory>] [-f <fastqc_binary>] ``
 
+
 Where:
 
     -d <directory>: specifies the input directory containing paired reads in Fastq format. This is a required parameter.
