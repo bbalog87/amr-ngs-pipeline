@@ -71,3 +71,14 @@ The script runs as follows:
   4. Check if the FastQC binary is installed and in the PATH or specified by the user.
   5. Run FastQC on each sample in parallel using the specified number of threads.
   6. Check for errors and print a summary message when the analysis is completed.
+
+
+## Command Line Options
+
+The script takes the following command line options:
+
+   - -d <directory>: specifies the input directory containing paired reads in Fastq format. This is a required parameter.
+   - -t <threads>: specifies the number of threads to use for FastQC analysis. The default is 8 threads.
+   - -o <output_directory>: specifies the output directory for FastQC results. The default is ./FastQC_output.
+  -  -f <fastqc_binary>: specifies the path to the FastQC binary. The default is fastqc.
+   - -h: prints a help message with the script usage and options.
