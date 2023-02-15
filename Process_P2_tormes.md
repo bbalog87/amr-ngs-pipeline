@@ -25,8 +25,6 @@ GENOMES=/home/nguinkal/AMR-Workflows/AQUAMIS_output2/Assembly/assembly
 ## Working directory
 WORK_DIR=/home/nguinkal/AMR-Workflows/
 
-# Download configuration
-wget https://anaconda.org/nmquijada/tormes-1.3.0/2021.06.08.113021/download/tormes-1.3.0.yml
 
 ```
 The script starts by setting some variables for the input and output directories. Then, it downloads the configuration file for TORMES.
@@ -35,11 +33,9 @@ The script starts by setting some variables for the input and output directories
 
 
 ```
-### create tormes_env, and install dependencies in tormes-1.3.0.yml 
-mamba env create -n tormes_Env --file tormes-1.3.0.yml
 
-## activate tormes environment
-conda activate tormes_Env
+# Download configuration
+wget https://anaconda.org/nmquijada/tormes-1.3.0/2021.06.08.113021/download/tormes-1.3.0.yml
 
 # Additionally, the first time you are using TORMES, run (after activating TORMES environment)
 # to setup tormes
@@ -54,5 +50,8 @@ The script creates a Conda environment called tormes_Env and installs the depend
 ```
 ### create tormes_env, and install dependencies in tormes-1.3.0.yml 
 mamba env create -n tormes_Env --file tormes-1.3.0.yml
+
+## activate tormes environment
+conda activate tormes_Env
 
 ```
