@@ -43,7 +43,15 @@ Before running AQUAMIS, you must set up the necessary databases. Run the followi
 
 bash aquamis_setup.sh -d
 ```
-
+ ###  Set the following variables to the appropriate values in your terminal:
+```ruby
+ WorkDir=/home/nguinkal/AMR-Workflows/AQUAMIS_output2  # output directory
+KRAKEN2DB=/home/nguinkal/AQUAMIS/AQUAMIS/reference_db/kraken  # Kraken2 database path
+TAXONKITDB=/home/nguinkal/AQUAMIS/AQUAMIS/reference_db/taxonkit  # taxonkit database path
+MASHDB=/home/nguinkal/AQUAMIS/AQUAMIS/reference_db/mash/mashDB.msh  # MASH database path
+READS_DIR=~/AMR-Workflows/TestData-reads  # path to input data directory
+THREADS=8  # number of threads to use
+```
 
 ## Create a sample sheet for AQUAMIS
 
