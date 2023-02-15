@@ -9,3 +9,11 @@ This documentation provides a step-by-step guide on how to install and set up [A
   - Conda or Mamba package manager
    - AQUAMIS installed in a Conda environment
   - Git installed in the Linux environment
+
+
+# Installation
+
+1. Clone the AQUAMIS repository from the GitLab repository:
+   ```bash
+   git clone https://gitlab.com/bfr_bioinformatics/AQUAMIS.git && cd AQUAMIS 
+   ```
