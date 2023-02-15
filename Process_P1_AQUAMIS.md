@@ -115,3 +115,13 @@ aquamis -l /path/to/samples.tsv \
  -r Testing_with_Staphyloccus
  
 ```
+
+
+Replace ``/path/to/samples.tsv, /path/to/output_dir, /path/to/kraken2, /path/to/taxonkit, /path/to/mash```, and run_name with the appropriate values.
+
+```
+    --taxlevel_qc: Set to S to perform species-level QC
+    --threads_sample: Number of threads to use for each sample. Replace $THREADS with the desired number.
+    -r: A name for the AQUAMIS
+    
+ ```
