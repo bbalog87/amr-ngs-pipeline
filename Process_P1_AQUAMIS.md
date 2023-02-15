@@ -55,5 +55,18 @@ create_sampleSheet.sh --mode ncbi \
                       --outDir /path/to/outDir \    
                       --force
 ```
+My example:
 
 
+```lua
+
+aquamis -l $WorkDir/samples.tsv \
+       --taxlevel_qc S -d $WorkDir \
+       --min_trimmed_length 22 \
+       --threads_sample $THREADS \
+       --logdir . \
+       --kraken2db $KRAKEN2DB \
+       --taxonkit_db $TAXONKITDB \
+       -m $MASHDB \
+       -r Testing_with_Staphyloccus
+```
