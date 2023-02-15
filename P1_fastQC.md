@@ -59,3 +59,15 @@ Where:
     -o <output_directory>: specifies the output directory for FastQC results. The default is ./FastQC_output.
     -f <fastqc_binary>: specifies the path to the FastQC binary. The default is fastqc.
 
+
+
+## Workflow
+
+The script runs as follows:
+
+  1. Check the input parameters and options.
+  2. Check if the input directory exists and is not empty.
+  3. Check if the output directory exists, and create it if it does not.
+  4. Check if the FastQC binary is installed and in the PATH or specified by the user.
+  5. Run FastQC on each sample in parallel using the specified number of threads.
+  6. Check for errors and print a summary message when the analysis is completed.
