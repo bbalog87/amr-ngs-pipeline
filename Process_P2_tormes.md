@@ -37,13 +37,10 @@ The script starts by setting some variables for the input and output directories
 # Download configuration
 wget https://anaconda.org/nmquijada/tormes-1.3.0/2021.06.08.113021/download/tormes-1.3.0.yml
 
-# Additionally, the first time you are using TORMES, run (after activating TORMES environment)
-# to setup tormes
-tormes-setup
 
 ```
 
-Step 3: Create TORMES Environment
+## Step 3: Create TORMES Environment
 
 The script creates a Conda environment called tormes_Env and installs the dependencies specified in the TORMES configuration file. It then activates the TORMES environment.
 
@@ -53,5 +50,10 @@ mamba env create -n tormes_Env --file tormes-1.3.0.yml
 
 ## activate tormes environment
 conda activate tormes_Env
+
+
+# Additionally, the first time you are using TORMES, run (after activating TORMES environment)
+# to setup tormes
+tormes-setup
 
 ```
