@@ -33,4 +33,78 @@ mkdir -p amrfinderINPUT && find $TORMES_ANNO/ \
 The script takes as input a set of genome sequences in FASTA format, but also protein sequences along with gff annotations located in the amrfinderINPUT directory. The input directory is created automatically if it does not exist. The input directory is populated by copying all files with extensions .faa, .gff, and .fna from the TORMES_Out/annotation directory.
 
 
+The input files should be in FASTA format, with file extensions ".fna", ".faa", or ".gff". 
+
+## Arguments
+
+The following arguments are used in the script:
+```
+- `-n`: input file in FASTA format
+- `--organism`: organism to use for searching the AMRfinderplus database. This should be one of the following:
+Acinetobacter_baumannii, Burkholderia_cepacia, Burkholderia_pseudomallei, Campylobacter, Clostridioides_difficile, 
+Enterococcus_faecalis, Enterococcus_faecium, Escherichia, Klebsiella_oxytoca,
+Klebsiella_pneumoniae, Neisseria_gonorrhoeae, Neisseria_meningitidis, 
+Pseudomonas_aeruginosa, Salmonella, Staphylococcus_aureus, Staphylococcus_pseudintermedius, 
+Streptococcus_agalactiae, Streptococcus_pneumoniae, or Vibrio_cholerae
+- `--threads`: number of threads to use (default: 8)
+- `--output`: output directory (default: "AMRFinder_Out")
+- `--name`: name of output file (default: same as input file)
+- `--mutation_all`: output file for mutations found (default: "AMRFinder_Out/${f%.fna}.mutations.txt")
+- `--report_common`: report ARGs that are found commonly in the selected organism
+- `--plus`: report additional information on ARGs, such as mutations and variants
+
+
+```
+
+The organism and threads used for AMRFinder analysis are set using the following commands:
+
+```bash
+
+ORGANISM="Staphylococcus_aureus" ## default organism
+THREADS=8
+```
+
+## Running AMRFinder
+
+AMRFinder is run for each input file using the following command:
+
+```python
+amrfinder -n $file \
+          --organism Staphylococcus_aureus \
+          --threads 8 \
+          --output AMRFinder_Out/${f%.fna}.amrfinder.out  \
+          --report_common --plus \
+          --name ${f%.fna} \
+          --mutation_all AMRFinder_Out/${f%.fna}.mutations.txt
+
+```
+
+## Concatenated Results and Final Output
+
+The script produces two output files: 
+
+1. **Mutation output**: A file named "mutation_amrfinder.txt" is created in a directory named "amrfinder_Results". This file contains information about mutations found in the input files. If the file already exists, the script appends the results to the end of the file.
+
+2. **ARG output**: A file named "final_amrfinder.txt" is created in the "amrfinder_Results" directory. This file contains information about ARGs found in the input files.
+
+
+The results from all the samples are stored in the `amrfinder_Results` directory in two files:
+- `mutation_amrfinder.txt`: contains mutation results for all the samples.
+- `final_amrfinder.txt`: contains ARG results for all the samples.
+
+These files can be opened in a spreadsheet program such as Microsoft Excel or Google Sheets for further analysis.
+
+## Conclusion
+
+In this process, we installed `amrfinderplus` using bioconda in a dedicated environment, downloaded the latest `amrfinderplus` database, and ran it on a set of sample files in the `TORMES_Out/annotation` directory. The Process also included concatenating the results for all samples into two separate files. The resulting output files contain information about the ARGs and mutations present in the input files, which can be used to study antimicrobial resistance in the samples.
+
+This process can be easily adapted for different sets of input files and customized based on the needs of the user.
+Additionally, it can be modified to be run on a remote server or high-performance computing cluster to process large sets of input files.
+
+
+
+
+
+
+
 
