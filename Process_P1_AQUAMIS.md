@@ -70,3 +70,9 @@ aquamis -l $WorkDir/samples.tsv \
        -m $MASHDB \
        -r Testing_with_Staphyloccus
 ```
+This script will generate a samples.tsv file in the output directory.
+
+The --mode parameter can be set to illumina, ncbi, flex, or assembly depending on the format of the input files.
+Run AQUAMIS on the input data
+
+To run AQUAMIS on the input data, use the following command:
