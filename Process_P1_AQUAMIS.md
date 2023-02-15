@@ -125,3 +125,7 @@ Replace ``/path/to/samples.tsv, /path/to/output_dir, /path/to/kraken2, /path/to/
     -r: A name for the AQUAMIS
     
  ```
+## Conclusion
+
+This script automates the use of AQUAMIS, making AMR detection from NGS data more efficient and easy to use. 
+With this script, users can make the  worklow reproducible.
