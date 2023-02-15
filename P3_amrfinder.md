@@ -64,6 +64,15 @@ ORGANISM="Staphylococcus_aureus" ## default organism
 THREADS=8
 ```
 
+## Example using when running in the nextflow workflow 
+
+The following options are available:
+
+ -   --input: Input directory for genome sequences in FASTA format (default: amrfinderINPUT).
+-    --output: Output directory for AMR detection results (default: AMRFinder_Out).
+-    --organism: Organism name for AMR detection (default: Staphylococcus_aureus).
+-    --threads: Number of threads to use (default: 8).
+
 ## Running AMRFinder
 
 AMRFinder is run for each input file using the following command:
