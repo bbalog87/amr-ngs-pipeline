@@ -64,7 +64,7 @@ ORGANISM="Staphylococcus_aureus" ## default organism
 THREADS=8
 ```
 
-## Example using when running in the nextflow workflow 
+## Example Usage when running in the nextflow workflow 
 
 The following options are available:
 
