@@ -51,3 +51,10 @@ The usage of the script is as follows:
 
 ``run_fastqc.sh -d <directory> [-t <threads>] [-o <output_directory>] [-f <fastqc_binary>] ``
 
+Where:
+
+    -d <directory>: specifies the input directory containing paired reads in Fastq format. This is a required parameter.
+    -t <threads>: specifies the number of threads to use for FastQC analysis. The default is 8 threads.
+    -o <output_directory>: specifies the output directory for FastQC results. The default is ./FastQC_output.
+    -f <fastqc_binary>: specifies the path to the FastQC binary. The default is fastqc.
+
