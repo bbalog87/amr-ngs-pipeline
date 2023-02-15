@@ -85,7 +85,9 @@ The --mode parameter can be set to ``illumina, ncbi, flex, or assembly`` dependi
 ## Run AQUAMIS on the input data
 
 To run AQUAMIS on the input data, use the following command:
+
 ```R
+
 aquamis -l /path/to/samples.tsv \
         --taxlevel_qc S \
         -d /path/to/output_dir \
@@ -96,5 +98,20 @@ aquamis -l /path/to/samples.tsv \
         --taxonkit_db /path/to/taxonkit \
         -m /path/to/mash \
         -r run_name
-        `
-
+        
+  ```
+      
+ My example:
+ 
+ ```javascript
+ aquamis -l $WorkDir/samples.tsv \
+ --taxlevel_qc S -d $WorkDir \
+ --min_trimmed_length 22 \
+ --threads_sample $THREADS \
+ --logdir . \
+ --kraken2db $KRAKEN2DB \
+ --taxonkit_db $TAXONKITDB \
+ -m $MASHDB \
+ -r Testing_with_Staphyloccus
+ 
+```
