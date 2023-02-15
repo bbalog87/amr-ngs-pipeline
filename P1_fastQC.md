@@ -94,4 +94,18 @@ The script runs FastQC on each sample in parallel using the specified number of 
  
 ## Output Files
 
-The output files are organized in subdirectories, one for each sample. The subdirectories 
+The script will output the FastQC results for each sample to the output directory specified by the user. 
+The output will be organized in a subdirectory for each sample, and will include an HTML report as well as a zip file containing the raw results.
+ 
+ 
+ ## Troubleshooting
+
+Here are some tips for troubleshooting issues that may arise when running the script:
+
+   - If the script fails to run, make sure that you have provided all of the required command line arguments, and that the input directory exists and contains fastq files.
+
+  - If the script fails to find the fastqc binary, make sure that it is installed and in the PATH, or specify the path to the binary using the -f argument.
+
+   - If the script fails to complete fastqc analysis for a sample, check the error message and make sure that both the forward and reverse reads are present and correctly named in the input directory.
+
+  - If you encounter any other issues, feel free to contact the author for assistance.
