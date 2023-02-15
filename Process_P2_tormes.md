@@ -83,4 +83,28 @@ Additionally, the following R packages may need to be installed using conda:
   - rmarkdown
   - treeio
 
+## Step 5: Create Metadata for Input Reads and Genomes
 
+The script creates metadata files for the input reads and genomes. These metadata files are used to tell TORMES which samples to process and to provide a description of each sample. The metadata files are created by parsing the file names in the input reads and genomes directories.
+
+
+
+The script creates metadata files for the reads and genomes as input to TORMES. The metadata files contain information about the samples and the corresponding files.
+
+Metadata for Reads:
+
+The metadata file for reads is created using the following steps:
+
+    A list of the sample names is created by extracting the prefix of the file names using sed.
+    The paths to the corresponding read files are obtained using realpath.
+    The sample names, read file paths, and a description are combined using paste.
+    The metadata file is saved as myMetadataReads.txt.
+
+Metadata for Genomes:
+
+The metadata file for genomes is created using the following steps:
+
+    A list of the sample names is created by extracting the prefix of the file names using sed.
+    The paths to the corresponding genome files are obtained using realpath.
+    The sample names, genome file paths, and a description are combined using paste.
+    The metadata file is saved as myMetadataGenomes.txt.
