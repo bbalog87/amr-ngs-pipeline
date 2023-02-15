@@ -177,11 +177,28 @@ done
 mkdir -p amrfinder_Results
 
 # Concatenate all the mutation result files into a single file and save it in the mutation results directory
-for file in "${OUTDIR}"/*.mutations.txt; do
-  if [ ! -f mutation_amrfinder.txt ]; then
-    head -n 
+mkdir -p amrfinder_Results
 
+for file in AMRFinder_Out/*.mutations.txt
+do
+  if [ ! -f mutation_amrfinder.txt ]  # concatenate output results (remove headers)
+  then
+    head -n 1 "$file" > amrfinder_Results/mutation_amrfinder.txt
+  fi
+  tail -n +2 "$file" >> amrfinder_Results/mutation_amrfinder.txt
+done
 
+## ARG results
+for file in AMRFinder_Out/*.amrfinder.out
+do
+  if [ ! -f final_amrfinder.txt ]
+  then
+    head -n 1 "$file" > amrfinder_Results/final_amrfinder.txt ## concatenated results
+  fi
+  tail -n +2 "$file" >> amrfinder_Results/final_amrfinder.txt
+done
+
+  ```
 
 
 
