@@ -47,4 +47,13 @@ bash aquamis_setup.sh -d
 
 ## Create a sample sheet for AQUAMIS
 
-Create a sample sheet for AQUAMIS using the create_sampleSheet.sh script. Use the following command:
+Create a sample sheet for AQUAMIS using the ``create_sampleSheet.sh`` script. Use the following command:
+
+```javascript
+create_sampleSheet.sh --mode ncbi \ 
+                      --fastxDir /path/to/fastxDir \  
+                      --outDir /path/to/outDir \    
+                      --force
+```
+
+
