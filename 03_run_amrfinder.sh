@@ -80,36 +80,17 @@ for file in $INPUT_FOLDER/*.fna; do
 
 done
 
+
+
+mkdir -p amrfinder_Results 
+
 ## Mutation results
-
-mkdir -p amrfinder_Results
-
-# concatenate mutation results (remove headers)
-header_written=false
-for file in AMRFinder_Out/*.mutations.txt; do
-  if [ "$header_written" = false ]; then
-    head -n 1 "$file" > amrfinder_Results/mutation_amrfinder.txt
-    header_written=true
-  fi
-  tail -n +2 "$file" >> amrfinder_Results/mutation_amrfinder.txt
-done
+awk 'FNR==1 && NR!=1 {next;}{print}' AMRFinder_Out/*.mutations.txt > amrfinder_Results/mutation_amrfinder.txt
 
 # concatenate ARG results
-header_written=false
-for file in AMRFinder_Out/*.amrfinder.out; do
-  if [ "$header_written" = false ]; then
-    head -n 1 "$file" > amrfinder_Results/final_amrfinder.txt
-    header_written=true
-  fi
-  tail -n +2 "$file" >> amrfinder_Results/final_amrfinder.txt
-done
-
-
-### awk version
-#awk 'FNR==1 && NR!=1 {next;}{print}' AMRFinder_Out/*.mutations.txt > amrfinder_Results/mutation_amrfinder.txt
-
-#awk 'FNR==1 && NR!=1 {next;}{print}' AMRFinder_Out/*.amrfinder.out > amrfinder_Results/final_amrfinder.txt
+awk 'FNR==1 && NR!=1 {next;}{print}' AMRFinder_Out/*.amrfinder.out > amrfinder_Results/final_amrfinder.txt
 
   
 
+  
   
