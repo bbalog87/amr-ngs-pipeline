@@ -100,12 +100,33 @@ process AMRFINDER {
     '''
 }
 
+process STARAMR {
+
+    tag "${genome}"
+    publishDir "${params.results}/staramr/${id}"
+
+    input:
+    tuple val(id), path(genome)
+
+    output:
+    //tuple val(id), path("results/annotation/${id}_annotation/*.fna")
+    path "*"
+
+    shell:
+
+    '''
+    staramr search !{genome} --output-dir results --mlst-scheme saureus  --genome-size-lower-bound 2000000
+    
+    '''
+}
+
 workflow{
 
     fastqc_files = Channel.fromFilePairs(params.fastqs, flat:true)
 
-    FASTQC(fastqc_files)
-    AQUAMIS(fastqc_files)
-    TORMES(AQUAMIS.out[0])
-    AMRFINDER(TORMES.out[0])
+    FASTQC (fastqc_files)
+    AQUAMIS (fastqc_files)
+    TORMES (AQUAMIS.out[0])
+    AMRFINDER (TORMES.out[0])
+    STARAMR(AQUAMIS.out[0])
 }
