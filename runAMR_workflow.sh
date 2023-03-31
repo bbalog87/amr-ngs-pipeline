@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# This is a Bash script for setting up and running an antimicrobial resistance (AMR) analysis pipeline.
-# It checks if the required software tools are installed and clones the AMR NGS Pipeline repository 
+# This is a Bash script for setting up and running the antimicrobial resistance (AMR) analysis pipeline:
+# It checks if the required software tools are installed and clones the AMR NGS Pipeline repository from github 
 # if it does not already exist.
-# The pipeline is then run with specified reads path and organism name.
-# The automated pipeline is run using Nextflow.
+#  The automated Nextflow pipeline is run with specified reads path and organism name.
+
 
 
 
