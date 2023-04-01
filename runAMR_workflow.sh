@@ -23,7 +23,7 @@ ORGANISM_NAME="" ## binary speciesd anme of the sequenced pathogens (e.g. Escher
 # Function to print help
 print_help() {
   echo -e "\n\033[1m\033[91m ======= HELP ======= \033[0m\n"
-  echo "Usage: bash run_AMR_workflow.sh [OPTIONS]"
+  echo "Usage: bash runAMR_workflow.sh [OPTIONS]"
   echo ""
   echo "Options:"
   echo "  -r, --reads <path/to/reads>        Path to the directory containing the sequencing reads (REQUIRED)"
