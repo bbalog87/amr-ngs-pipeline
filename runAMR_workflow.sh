@@ -48,7 +48,7 @@ done
 
 # Check if reads path and organism name are provided
 if [[ -z $READS_PATH || -z $ORGANISM_NAME ]]; then
-    echo -e "\033[1m\033[91m ERROR: Reads path and organism name are mandatory. 
+    echo -e "\033[1m\033[91m ERROR: Reads folder and organism name are mandatory. 
 	\nPlease provide these arguments using --reads and --organism options. 
 	Use --help or -h option to see the help message. \033[0m"
     exit 1
