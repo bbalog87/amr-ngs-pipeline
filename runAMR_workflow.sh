@@ -3,7 +3,7 @@
 # This is a Bash script for setting up and running the antimicrobial resistance (AMR) analysis pipeline:
 # It checks if the required software tools are installed and clones the AMR NGS Pipeline repository from github 
 # if it does not already exist.
-#  The automated Nextflow pipeline is run with specified reads path and organism name.
+# The automated Nextflow pipeline is run with specified reads path and organism name.
 
 
 
@@ -119,7 +119,7 @@ fi
 echo -e "\n\033[1m\033[92m ======= $(date +"%Y-%m-%d %T"): SETUP COMPLETED ======= \033[0m\n"
 
 
-echo -e "\n\033[1m\033[92m ======= $(date +"%Y-%m-%d %T"): AMR ANALYSIS STARTED WITH "$ORGANISM_NAME"... ======= \033[0m\n"
+echo -e "\n\033[1m\033[92m ======= $(date +"%Y-%m-%d %T"). STEP 1: PERFORMING AMR ANALYSIS WITH "$ORGANISM_NAME"... ======= \033[0m\n"
 
 #=============  HERE will run the nextflow processes !!!=================
 
