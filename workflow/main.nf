@@ -20,14 +20,14 @@ process FASTQC {
 
 process AQUAMIS {
 
-    tag "${fq1}_XX_${fq2}"
-    publishDir "${params.results}/aquamis/${id}"
+    tag "aquamis"
+    publishDir "${params.results}/aquamis"
 
     input:
-    tuple val(id),path(fq1),path(fq2)
+    path fastqs
 
     output:
-    tuple val(id), path("Assembly/assembly/*.fasta")
+    path "Assembly/assembly/*.fasta"
     path "*"
     
     shell:
@@ -53,21 +53,22 @@ process AQUAMIS {
 
 process TORMES {
 
-    tag "${genome}"
-    publishDir "${params.results}/tormes/${id}"
+    tag "tormes"
+    publishDir "${params.results}/tormes"
 
     input:
-    tuple val(id), path(genome)
+    path genomes
 
     output:
-    tuple val(id), path("results/annotation/${id}_annotation/*.fna")
+    path "results/annotation/*_annotation/*.fna"
     path "*"
 
     shell:
 
     '''
     echo -e "Samples\tRead1\tRead2\tDescription" > sample_metadata.txt
-    echo -e "!{id}\tGENOME\t!{genome}\t""This is the genome for !{id}" >> sample_metadata.txt
+
+    for FILE in $(ls *.fasta);do echo -e "${FILE%.*}\tGENOME\t${FILE}\t""This is the genome for ${FILE%.*}" >> sample_metadata.txt;done
     tormes -m sample_metadata.txt -o results -t !{task.cpus}
     
     '''
@@ -76,21 +77,20 @@ process TORMES {
 process AMRFINDER {
 
     tag "${fna}"
-    publishDir "${params.results}/amrfinder/${id}"
+    publishDir "${params.results}/amrfinder"
 
     input:
     tuple val(id), path(fna)
-
+    val organism
     output:
     path "*"
 
     shell:
 
     '''
-    ORGANISM="Staphylococcus_aureus" 
 
     amrfinder -n !{fna} \
-          --organism "$ORGANISM" \
+          --organism !{organism} \
           --threads !{task.cpus} \
           --output "!{id}.amrfinder.out" \
           --report_common --plus \
@@ -102,11 +102,11 @@ process AMRFINDER {
 
 process STARAMR {
 
-    tag "${genome}"
-    publishDir "${params.results}/staramr/${id}"
+    tag "staramr"
+    publishDir "${params.results}/staramr"
 
     input:
-    tuple val(id), path(genome)
+    path genomes
 
     output:
     //tuple val(id), path("results/annotation/${id}_annotation/*.fna")
@@ -115,18 +115,25 @@ process STARAMR {
     shell:
 
     '''
-    staramr search !{genome} --output-dir results --mlst-scheme saureus  --genome-size-lower-bound 2000000
+    staramr search *.fasta --output-dir results --mlst-scheme saureus  --genome-size-lower-bound 2000000
     
     '''
 }
 
 workflow{
+    my_species = ["Acinetobacter_baumannii","Burkholderia_cepacia","Staphylococcus_aureus","Klebsiella_pneumoniae"]
 
-    fastqc_files = Channel.fromFilePairs(params.fastqs, flat:true)
-
+    fastqc_files = Channel.fromFilePairs(params.reads,flat:true)
+    fastq_files = Channel.fromFilePairs(params.reads).flatMap{it[1]}.collect()
     FASTQC (fastqc_files)
-    AQUAMIS (fastqc_files)
+    AQUAMIS (fastq_files)
     TORMES (AQUAMIS.out[0])
-    AMRFINDER (TORMES.out[0])
+    for_amr = TORMES.out[0].flatten().map{it -> [it.simpleName,it]}
+    if (params.organism in my_species){
+        AMRFINDER (for_amr,params.organism)
+    } else{
+        println("${params.organism} not in the list. change and resume the pipeline")
+    }
+   
     STARAMR(AQUAMIS.out[0])
 }
