@@ -102,8 +102,8 @@ fi
 if conda list git >/dev/null 2>&1; then
   echo "git is already installed."
 else
-  # Install git using conda
-  conda install -c anaconda git -y
+  # Install git using mamba
+  mamba install -c anaconda git -y
 fi
 
 
