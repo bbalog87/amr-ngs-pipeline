@@ -121,12 +121,12 @@ process STARAMR {
 }
 
 workflow{
-    String baseDir = file(".").getAbsolutePath()
-    params.baseDir = baseDir
+    //String baseDir = file(".").getAbsolutePath()
+    //params.baseDir = baseDir
     my_species = ["Acinetobacter_baumannii","Burkholderia_cepacia","Staphylococcus_aureus","Klebsiella_pneumoniae"]
-
-    fastqc_files = Channel.fromFilePairs(params.reads,flat:true)
-    fastq_files = Channel.fromFilePairs(params.reads).flatMap{it[1]}.collect()
+    println(params.pattern)
+    fastqc_files = Channel.fromFilePairs(params.pattern,flat:true)
+    fastq_files = Channel.fromFilePairs(params.pattern).flatMap{it[1]}.collect()
     FASTQC (fastqc_files)
     AQUAMIS (fastq_files)
     TORMES (AQUAMIS.out[0])
