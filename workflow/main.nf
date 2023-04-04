@@ -47,7 +47,7 @@ process AQUAMIS {
         --kraken2db !{params.kraken} \
         --taxonkit_db !{params.taxonkit} \
         -m !{params.mash} \
-        -r Testing_with_Staphylococcus
+        -r 'AMR Analysis with ${organism}'
     '''
 }
 
@@ -115,12 +115,14 @@ process STARAMR {
     shell:
 
     '''
-    staramr search *.fasta --output-dir results --mlst-scheme saureus  --genome-size-lower-bound 2000000
+    staramr search *.fasta --output-dir results --mlst-scheme ${params.mlst_scheme} --genome-size-lower-bound 2000000
     
     '''
 }
 
 workflow{
+    String baseDir = file(".").getAbsolutePath()
+    params.baseDir = baseDir
     my_species = ["Acinetobacter_baumannii","Burkholderia_cepacia","Staphylococcus_aureus","Klebsiella_pneumoniae"]
 
     fastqc_files = Channel.fromFilePairs(params.reads,flat:true)
