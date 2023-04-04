@@ -7,7 +7,6 @@
 
 
 
-
 # Get the current date and time
 CURRENT_TIME=$(date +"%Y-%m-%d %T")
 # Specify the installation directory for Anaconda3
@@ -18,6 +17,7 @@ PIPELINE_DIR="$INSTALL_DIR/amr-ngs-pipeline"
 # Command line parameters
 READS_DIR=""  # Path to NGS Illumina reads
 ORGANISM_NAME="" ## binary speciesd anme of the sequenced pathogens (e.g. Escherichia coli)
+MLST_SCHEME="" ## mlts scheme, e.g. ecoli
 
 
 # Function to print help
@@ -28,6 +28,7 @@ print_help() {
   echo "Options:"
   echo "  -r, --reads <path/to/reads>        Path to the directory containing the sequencing reads (REQUIRED)"
   echo "  -o, --organism <organism_name>     Name of the bacterial species (REQUIRED)"
+  echo "  -s, --mlst <organism_name>          MLST scheme for your species (REQUIRED)"
   echo "  -h, --help                         Display this help and exit"
   echo ""
 }
@@ -41,15 +42,16 @@ while [[ "$#" -gt 0 ]]; do
 		
         --reads|-r) READS_PATH="$2"; shift ;;
         --organism|-o) ORGANISM_NAME="$2"; shift ;;
+		-mlst|-s) MLST_SCHEME="$2"; shift ;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
     esac
     shift
 done
 
 # Check if reads path and organism name are provided
-if [[ -z $READS_PATH || -z $ORGANISM_NAME ]]; then
-    echo -e "\033[1m\033[91m ERROR: Reads folder and organism name are mandatory. 
-	\nPlease provide these arguments using --reads and --organism options. 
+if [[ -z $READS_PATH || -z $ORGANISM_NAME || -z $MLST_SCHEME ]]; then
+    echo -e "\033[1m\033[91m ERROR: Reads folder, organism name amd mlst scheme are mandatory. 
+	\nPlease provide these arguments using --reads, --mlst and --organism options. 
 	Use --help or -h option to see the help message. \033[0m"
     exit 1
 fi
@@ -125,7 +127,10 @@ echo -e "\n\033[1m\033[92m ======= $(date +"%Y-%m-%d %T"). STEP 1: PERFORMING AM
 
 # Run the pipeline with the specified reads path and organism name
 
-nextflow run main.nf --reads "$READS_PATH" --organism "$ORGANISM_NAME" -resume
+nextflow run $PIPELINE_DIR/workflow/main.nf \
+            --reads "$READS_PATH" \
+			--organism "$ORGANISM_NAME" \
+			--mlst-scheme "$MLST_SCHEME" -resume
 
 
 # ======================================================================
