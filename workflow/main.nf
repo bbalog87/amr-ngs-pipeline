@@ -47,11 +47,12 @@ process AQUAMIS {
         --kraken2db !{params.kraken} \
         --taxonkit_db !{params.taxonkit} \
         -m !{params.mash} \
-        -r 'AMR Analysis with ${organism}'
+        -r 'AMR Analysis with !{params.organism}'
     '''
 }
 
 process TORMES {
+
 
     tag "tormes"
     publishDir "${params.results}/tormes"
@@ -90,7 +91,7 @@ process AMRFINDER {
     '''
 
     amrfinder -n !{fna} \
-          --organism !{organism} \
+          --organism !{params.organism} \
           --threads !{task.cpus} \
           --output "!{id}.amrfinder.out" \
           --report_common --plus \
@@ -102,30 +103,34 @@ process AMRFINDER {
 
 process STARAMR {
 
-    tag "staramr"
-    publishDir "${params.results}/staramr"
+  tag "staramr"
+  publishDir "${params.results}/staramr"
 
     input:
-    path genomes
-
+   path genomes
+   val scheme    
+	
     output:
-    //tuple val(id), path("results/annotation/${id}_annotation/*.fna")
+    tuple val(id), path("results/annotation/${id}_annotation/*.fna")
     path "*"
-
-    shell:
+  
+   shell:
 
     '''
-    staramr search *.fasta --output-dir results --mlst-scheme ${params.mlst_scheme} --genome-size-lower-bound 2000000
+
+    staramr search *.fasta --output-dir results \
+	      --mlst-scheme !{scheme} \
+		  --genome-size-lower-bound 2000000
     
     '''
 }
 
 workflow{
-    //String baseDir = file(".").getAbsolutePath()
-    //params.baseDir = baseDir
+ 	
     my_species = ["Acinetobacter_baumannii","Burkholderia_cepacia","Staphylococcus_aureus","Klebsiella_pneumoniae"]
-    println(params.pattern)
+
     fastqc_files = Channel.fromFilePairs(params.pattern,flat:true)
+	fastqc_files.view()
     fastq_files = Channel.fromFilePairs(params.pattern).flatMap{it[1]}.collect()
     FASTQC (fastqc_files)
     AQUAMIS (fastq_files)
@@ -137,5 +142,6 @@ workflow{
         println("${params.organism} not in the list. change and resume the pipeline")
     }
    
-    STARAMR(AQUAMIS.out[0])
+   STARAMR(AQUAMIS.out[0], params.scheme)
+   //STARAMR(AQUAMIS.out[0])
 }
