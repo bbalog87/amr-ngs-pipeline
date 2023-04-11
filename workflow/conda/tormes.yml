@@ -1,4 +1,4 @@
-name: tormes-1.3.0
+name: tormes
 channels:
   - nmquijada
   - conda-forge
