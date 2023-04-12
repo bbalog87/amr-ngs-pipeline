@@ -1,4 +1,4 @@
-|      | SCHEME               | GENUS             | SPECIES            | SPECIES_NAME                     |
+|      | MLST_SCHEME               | GENUS             | SPECIES            | SPECIES_NAME                     |
 | --- | -------------------- | ----------------- | ------------------ | -------------------------------- |
 | 1   | abaumannii           | Acinetobacter     | baumannii          | Acinetobacter_baumannii          |
 | 2   | abaumannii_2         | Acinetobacter     | baumannii          | Acinetobacter_baumannii          |
