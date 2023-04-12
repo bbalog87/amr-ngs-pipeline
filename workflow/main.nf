@@ -25,6 +25,7 @@ process AQUAMIS {
 
     input:
     path fastqs
+    val organism
 
     output:
     path "Assembly/assembly/*.fasta"
@@ -47,7 +48,7 @@ process AQUAMIS {
         --kraken2db !{params.kraken} \
         --taxonkit_db !{params.taxonkit} \
         -m !{params.mash} \
-        -r 'AMR Analysis with !{params.organism}'
+        -r 'AMR Analysis with !{organism}'
     '''
 }
 
@@ -83,6 +84,7 @@ process AMRFINDER {
     input:
     tuple val(id), path(fna)
     val organism
+
     output:
     path "*"
 
@@ -91,7 +93,7 @@ process AMRFINDER {
     '''
 
     amrfinder -n !{fna} \
-          --organism !{params.organism} \
+          --organism !{organism} \
           --threads !{task.cpus} \
           --output "!{id}.amrfinder.out" \
           --report_common --plus \
@@ -103,18 +105,17 @@ process AMRFINDER {
 
 process STARAMR {
 
-  tag "staramr"
-  publishDir "${params.results}/staramr"
+    tag "staramr"
+    publishDir "${params.results}/staramr"
 
     input:
-   path genomes
-   val scheme    
+    path genomes
+    val scheme    
 	
     output:
-    tuple val(id), path("results/annotation/${id}_annotation/*.fna")
-    path "*"
+    path "results"
   
-   shell:
+    shell:
 
     '''
 
@@ -130,10 +131,9 @@ workflow{
     my_species = ["Acinetobacter_baumannii","Burkholderia_cepacia","Staphylococcus_aureus","Klebsiella_pneumoniae"]
 
     fastqc_files = Channel.fromFilePairs(params.pattern,flat:true)
-	fastqc_files.view()
     fastq_files = Channel.fromFilePairs(params.pattern).flatMap{it[1]}.collect()
     FASTQC (fastqc_files)
-    AQUAMIS (fastq_files)
+    AQUAMIS (fastq_files, params.organism)
     TORMES (AQUAMIS.out[0])
     for_amr = TORMES.out[0].flatten().map{it -> [it.simpleName,it]}
     if (params.organism in my_species){
