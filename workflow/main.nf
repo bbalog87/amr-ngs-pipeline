@@ -18,6 +18,7 @@ process FASTQC {
     '''
 }
 
+
 process AQUAMIS {
 
     tag "aquamis"
@@ -126,22 +127,29 @@ process STARAMR {
     '''
 }
 
+
 workflow{
+    
+	    my_species = ["Acinetobacter_baumannii","Burkholderia_cepacia","Burkholderia_pseudomallei",
+                     "Campylobacter","Clostridioides_difficile","Enterococcus_faecalis","Enterococcus_faecium",
+                     "Escherichia","Klebsiella_oxytoca","Klebsiella_pneumoniae","Neisseria_gonorrhoeae",
+                     "Neisseria_meningitidis","Pseudomonas_aeruginosa","Salmonella","Staphylococcus_aureus",
+                     "Staphylococcus_pseudintermedius","Streptococcus_agalactiae","Streptococcus_pneumoniae",
+                     "Streptococcus_pyogenes","Vibrio_cholerae"]
  	
-    my_species = ["Acinetobacter_baumannii","Burkholderia_cepacia","Staphylococcus_aureus","Klebsiella_pneumoniae"]
+    //my_species = ["Acinetobacter_baumannii","Burkholderia_cepacia","Staphylococcus_aureus","Klebsiella_pneumoniae"]
 
     fastqc_files = Channel.fromFilePairs(params.pattern,flat:true)
     fastq_files = Channel.fromFilePairs(params.pattern).flatMap{it[1]}.collect()
     FASTQC (fastqc_files)
     AQUAMIS (fastq_files, params.organism)
     TORMES (AQUAMIS.out[0])
-    for_amr = TORMES.out[0].flatten().map{it -> [it.simpleName,it]}
-    if (params.organism in my_species){
-        AMRFINDER (for_amr,params.organism)
+     for_amr = TORMES.out[0].flatten().map{it -> [it.simpleName,it]}
+     if (params.organism in my_species){
+       AMRFINDER (for_amr,params.organism)
     } else{
-        println("${params.organism} not in the list. change and resume the pipeline")
-    }
+         println("${params.organism} not in the list. Change and resume the pipeline")
+     }
    
    STARAMR(AQUAMIS.out[0], params.scheme)
-   //STARAMR(AQUAMIS.out[0])
 }
