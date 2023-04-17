@@ -101,7 +101,7 @@ process AMRFINDER {
           --name !{id} \
           --mutation_all "!{id}.mutations.txt"
 		  
-	cat $(ls -v !{params.results}/amrfinder/!{id}.*.mutations.txt | head -n 1) > !{params.results}/amrfinder/final_mutations_amrfinder.txt
+    cat $(ls -v !{params.results}/amrfinder/!{id}.*.mutations.txt | head -n 1) > !{params.results}/amrfinder/final_mutations_amrfinder.txt
     awk 'FNR==1 && NR!=1{next;}{print}' $(ls -v !{params.results}/amrfinder/!{id}.*.mutations.txt | tail -n +2) >> !{params.results}/amrfinder/final_mutations.txt
  
     cat $(ls -v !{params.results}/amrfinder/!{id}.*.amrfinder.out | head -n 1) > !{params.results}/amrfinder/final_amrfinder.txt
@@ -136,8 +136,7 @@ process STARAMR {
 
 
 workflow{
-    
-	    my_species = ["Acinetobacter_baumannii","Burkholderia_cepacia","Burkholderia_pseudomallei",
+     my_species = ["Acinetobacter_baumannii","Burkholderia_cepacia","Burkholderia_pseudomallei",
                      "Campylobacter","Clostridioides_difficile","Enterococcus_faecalis","Enterococcus_faecium",
                      "Escherichia","Klebsiella_oxytoca","Klebsiella_pneumoniae","Neisseria_gonorrhoeae",
                      "Neisseria_meningitidis","Pseudomonas_aeruginosa","Salmonella","Staphylococcus_aureus",
