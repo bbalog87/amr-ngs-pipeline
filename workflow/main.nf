@@ -100,6 +100,13 @@ process AMRFINDER {
           --report_common --plus \
           --name !{id} \
           --mutation_all "!{id}.mutations.txt"
+		  
+	cat $(ls -v !{params.results}/amrfinder/!{id}.*.mutations.txt | head -n 1) > !{params.results}/amrfinder/final_mutations_amrfinder.txt
+    awk 'FNR==1 && NR!=1{next;}{print}' $(ls -v !{params.results}/amrfinder/!{id}.*.mutations.txt | tail -n +2) >> !{params.results}/amrfinder/final_mutations.txt
+ 
+    cat $(ls -v !{params.results}/amrfinder/!{id}.*.amrfinder.out | head -n 1) > !{params.results}/amrfinder/final_amrfinder.txt
+    awk 'FNR==1 && NR!=1{next;}{print}' $(ls -v !{params.results}/amrfinder/!{id}.*.amrfinder.out | tail -n +2) >> !{params.results}/amrfinder/final_amrfinder.txt
+
     
     '''
 }
