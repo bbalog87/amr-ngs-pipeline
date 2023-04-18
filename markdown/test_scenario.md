@@ -45,11 +45,16 @@ The following command line paramaters are displayed:
 - `-h` or `--help`: Display help message and exit
 
 ### Example
+- Downlaod the test dataset for each organism.
+- Move them in a place easily accesible (e.g. Home directory).
+- Open a terminal and move into the folder ```cd EcoliReads```, the type ```gunzip * ```to decompresse the reads files.
+- Copy the setup_script ```amrFlow_setup.sh``` somewhere easily accesible on your computer (e.g. $HOME).
 
-To run the pipeline on sequencing reads in the directory `~/reads`, for the bacterial species `Escherichia` using the `ecoli` MLST scheme, run the following command:
+
+To run the pipeline on sequencing reads in the directory `~/EcoliReads`, for the bacterial species `Escherichia` using the `ecoli` MLST scheme, run the following command:
 
 ```
-bash amrFlow_setup.sh  -r ~/reads -o Escherichia -s ecoli
+bash amrFlow_setup.sh  -r ~/EcoliReads -o Escherichia -s ecoli
 
 ```
 If sucessfull, this script will crreate the Nextflow script in ```~/amrFlow/Escherichia.sh```, which can be executed with
