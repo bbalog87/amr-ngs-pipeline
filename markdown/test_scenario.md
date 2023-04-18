@@ -116,3 +116,5 @@ Once the setup is successfully complete without errors, we should see this messa
 
 
 ![ray-so-export(5)](https://user-images.githubusercontent.com/37578252/232757401-ccaa09e8-a9b7-42a6-95de-fdc590934bb6.png)
+
+3. Copy and paste the the command ```bash /home/nguinkal/amrFlow/Acinetobacter_baumannii.sh``` in the terminal, then press ENTER.
