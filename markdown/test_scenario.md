@@ -1,7 +1,7 @@
 # Testing AMR analysis pipeline 
 
 
-# AMR Pipeline
+## amrFlow Pipeline
 
 This pipeline is designed to analyze NGS (Illumina PE) antimicrobial resistance (AMR) in bacterial genomes using Nextflow, a workflow management system. The pipeline checks if the required software tools are installed and clones the AMR NGS Pipeline repository from Github if it does not already exist. The pipeline then sets up the working environment by creating the installation directory if it does not exist, downloading the Miniconda3 installer, checking if Miniconda3 is already installed, and installing it if it is not. It also creates a new Conda environment and installs the required packages for each process. Finally, the pipeline sets up the config file based on the paramerters proved by users, and runs the Nextflow pipeline with the specified reads path and organism name.
 
