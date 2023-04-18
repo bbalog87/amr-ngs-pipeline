@@ -98,7 +98,7 @@ The pipeline supports the following bacterial species:
 | ILLUMINA               | SampleID_Lane_Index_ReadNumber.fastq  Example: Sample1_001_ATCGTA_L001_R1.fastq                     |
 
 
-2. Open a termian and run the ```amrFlow_setup.sh``` script with no parametrsv to see the required inputs
+2. Open a terminal window and run the ```amrFlow_setup.sh``` script with no parameters to see the required inputs.
 
 ![ray-so-export(3)](https://user-images.githubusercontent.com/37578252/232752731-397f7673-464b-4d10-ba71-464b4d046405.png)
 
