@@ -19,7 +19,7 @@ No active installaion is needed. The ```amrFlow_setup.sh``` script handles the i
 
 This Bash script is used for setting up the system to running the antimicrobial resistance (AMR)
 analysis pipeline. 
- - The setup script need to be executed for a each species.
+ - The setup script needs to be executed for a each species to creat the specific paramaters for that organism.
  - Howver, the subsquent setup will be more light and faster since the syetmns will alred have the required tools and packages.
  - If the reads path, organism name, and MLST scheme are not provided, an error message is displayed. It also checks if the provided organism name 
    is in the valid species list of supported organisms (mainly GLASS priority pathogens).
