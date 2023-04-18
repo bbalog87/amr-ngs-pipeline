@@ -68,7 +68,7 @@ print_help() {
   echo "Options:"
   echo "  -r, --reads <path/to/reads>        Path to the directory containing the sequencing reads (REQUIRED)"
   echo "  -o, --organism <organism_name>     Name of the bacterial species (REQUIRED)"
-  echo "  -s, --mlst <organism_name>          MLST scheme for your species (REQUIRED)"
+  echo "  -s, --mlst <organism_scheme>          MLST scheme for your species (REQUIRED)"
   echo "  -h, --help                         Display this help and exit"
   echo ""
 }
@@ -144,12 +144,12 @@ fi
 
 
 
-#source "$INSTALL_DIR/Miniconda3/bin/activate"
-#source "$HOME/.bashrc"
+source "$INSTALL_DIR/Miniconda3/bin/activate"
+source "$HOME/.bashrc"
 
 
 ## install mamba
-#conda create -n "$ENV_NAME"  -c conda-forge python=3.9 mamba -y
+conda create -n "$ENV_NAME"  -c conda-forge python=3.9 mamba -y
 conda activate "$ENV_NAME"
 
 
@@ -157,7 +157,7 @@ conda activate "$ENV_NAME"
  mamba install -c bioconda nextflow -y 
 
  # Install git 
- #mamba install -c anaconda git -y
+ mamba install -c anaconda git -y
 
 # Clone the AMR-NGS Pipeline repository if it does not already exist
 if [[ -d "$PIPELINE_DIR" ]]; then
@@ -169,12 +169,54 @@ fi
 
 #### Intall environments for each process.
 
-mamba env create  --file $PIPELINE_DIR/workflow/conda/amrfinder.yml -p $INSTALL_DIR/Miniconda3/envs/amrfinder
+
 mamba create -y -c conda-forge -c bioconda -n amrfinder ncbi-amrfinderplus
+
+# Check if amrfinder environment already exists
+if conda env list | grep -q $INSTALL_DIR/Miniconda3/envs/amrfinder; then
+    echo "Amrfinder environment already exists"
+else
+    # Create Amrfinder environment
+mamba env create  --file $PIPELINE_DIR/workflow/conda/amrfinder.yml -p $INSTALL_DIR/Miniconda3/envs/amrfinder
+fi
+
+
+# Check if aquamis environment already exists
+if conda env list | grep -q $INSTALL_DIR/Miniconda3/envs/aquamis; then
+    echo "AQUAMIS environment already exists"
+else
+    # Create Aquamis environment
 mamba env create --file $PIPELINE_DIR/workflow/conda/aquamis.yml -p $INSTALL_DIR/Miniconda3/envs/aquamis
+fi
+
+
+
+# Check if fastqc environment already exists
+if conda env list | grep -q $INSTALL_DIR/Miniconda3/envs/fastqc; then
+    echo "Fastqc environment already exists"
+else
+    # Create Fastqc environment
 mamba env create --file $PIPELINE_DIR/workflow/conda/fastqc.yml -p $INSTALL_DIR/Miniconda3/envs/fastqc
-mamba env create --file $PIPELINE_DIR/workflow/conda/staramr.yml -p $INSTALL_DIR/Miniconda3/envs/staramr
-mamba env create  --file $PIPELINE_DIR/workflow/conda/tormes.yml -p $INSTALL_DIR/Miniconda3/envs/tormes
+fi
+
+# Check if tormes environment already exists
+if conda env list | grep -q $INSTALL_DIR/Miniconda3/envs/staramr; then
+    echo "Staramr environment already exists"
+else
+    # Create Staramr environment
+ mamba env create --file $PIPELINE_DIR/workflow/conda/staramr.yml -p $INSTALL_DIR/Miniconda3/envs/staramr
+fi
+
+
+
+
+# Check if tormes environment already exists
+if conda env list | grep -q $INSTALL_DIR/Miniconda3/envs/tormes; then
+    echo "Tormes environment already exists"
+else
+    # Create Tormes environment
+    mamba env create  --file $PIPELINE_DIR/workflow/conda/tormes.yml -p $INSTALL_DIR/Miniconda3/envs/tormes
+fi
 
 
 
@@ -216,23 +258,30 @@ cd ..
 ## TORMES SET-UP
 
 # Activate TORMES environment
-conda activate $INSTALL_DIR/Miniconda3/envs/tormes
+# conda activate $INSTALL_DIR/Miniconda3/envs/tormes
+# $INSTALL_DIR && tormes-setup
 
-cd $INSTALL_DIR && tormes-setup
+if [ ! -d "$INSTALL_DIR/Miniconda3/envs/tormes/db/ncbi/sequences" ]; then
+  # Activate TORMES environment
+  conda activate $INSTALL_DIR/Miniconda3/envs/tormes && tormes-setup
+fi
 
 
 # Download latest amrfinder database
 
 conda activate $INSTALL_DIR/Miniconda3/envs/amrfinder
 
- amrfinder -U
+ amrfinder -u
 
+AMRFINDER_RES="$INSTALL_DIR/AMR-Results/$ORGANISM_NAME/amrfinder"
+#JOB_NAME=${GANISM_NAME}.sh
 
 # Success message after installation is complete
 echo -e "\n\033[1m\033[92m ======= $(date +"%Y-%m-%d %T"): SETUP COMPLETED ======= \033[0m\n"
 
 
-echo -e "\n\033[1m\033[92m ======= $(date +"%Y-%m-%d %T"). STEP 1: PERFORMING AMR ANALYSIS WITH "$ORGANISM_NAME"...======= \033[0m\n"
+echo -e "\n\033[1m\033[92m ======= $(date +"%Y-%m-%d %T"). NEXT STEP: PERFORM AMR ANALYSIS WITH "$ORGANISM_NAME" by running this command:\033[0m\n"
+echo -e "> bash ${INSTALL_DIR}/${ORGANISM_NAME}.sh  \n"
 
 
   #=============  HERE will run the nextflow processes !!!=================
@@ -242,23 +291,73 @@ echo -e "\n\033[1m\033[92m ======= $(date +"%Y-%m-%d %T"). STEP 1: PERFORMING AM
 
 
 
-source "$INSTALL_DIR/Miniconda3/bin/activate" 
+#source "$INSTALL_DIR/Miniconda3/bin/activate" 
 #$INSTALL_DIR/Miniconda3/envs
-#source $INSTALL_DIR/Miniconda3/etc/profile.d/conda.sh
-
-
 
 #conda activate "$ENV_NAME"
- nextflow run $PIPELINE_DIR/workflow/main.nf \
+ #nextflow run $PIPELINE_DIR/workflow/main.nf \
+   # --reads $READS_PATH \
+  # --organism $ORGANISM_NAME \
+  # --myConda $INSTALL_DIR/Miniconda3/envs \
+  #  --scheme $MLST_SCHEME
+	
+
+# ======================================================================
+#AMRFINDER_RES="$INSTALL_DIR/AMR-Results/$ORGANISM_NAME/amrfinder"
+## Mutation results
+#awk 'FNR==1 && NR!=1 {next;}{print}' $AMRFINDER_RES/*.mutations.txt > $AMRFINDER_RES/mutation_amrfinder.txt
+
+# concatenate ARG results
+#awk 'FNR==1 && NR!=1 {next;}{print}' $AMRFINDER_RES/*.amrfinder.out > $AMRFINDER_RES/final_amrfinder.txt
+
+# Print this only when Nextflow Run is sucessfully completed for all samples
+
+#echo -e "\n\033[1m\033[92m ======= $(date +"%Y-%m-%d %T"): AMR ANALYSIS COMPLETED... ======= \033[0m\n"
+
+#echo -e "\n\033[1m\033[92m ======= $(date +"%Y-%m-%d %T"): FINAL RESULTS written in $INSTALL_DIR/AMR-Results/$ORGANISM_NAME ======= \033[0m\n"
+
+
+cat > $INSTALL_DIR/${ORGANISM_NAME}.sh << EOF
+#!/bin/bash
+source "$INSTALL_DIR/Miniconda3/bin/activate" 
+
+
+echo -e "\n\033[1m\033[92m ======= $(date +"%Y-%m-%d %T"): AMR ANALYSIS FOR $ORGANISM_NAME STARTED... ======= \033[0m\n"
+#cho  "command: nextflow run ${PIPELINE_DIR}/workflow/main.nf \
+   #--reads ${READS_PATH} \
+   #--organism ${ORGANISM_NAME} \
+   #--myConda ${INSTALL_DIR}/Miniconda3/envs \
+   #--scheme ${MLST_SCHEME}"
+
+printf "command: nextflow run ${PIPELINE_DIR}/workflow/main.nf\n\
+\t--reads\t${READS_PATH}\n\
+\t--organism\t${ORGANISM_NAME}\n\
+\t--myConda\t${INSTALL_DIR}/Miniconda3/envs\n\
+\t--scheme\t${MLST_SCHEME}\n"
+
+
+# Run Nextflow pipeline
+nextflow run $PIPELINE_DIR/workflow/main.nf \
     --reads "$READS_PATH" \
     --organism "$ORGANISM_NAME" \
     --myConda "$INSTALL_DIR/Miniconda3/envs" \
     --scheme $MLST_SCHEME
-	
 
-# ======================================================================
+# Combine mutation results
+awk 'FNR==1 && NR!=1 {next;}{print}' ${AMRFINDER_RES}/*.mutations.txt > ${AMRFINDER_RES}/final_mutation_amrfinder.tsv
+
+# Concatenate ARG results
+find ${AMRFINDER_RES} -name "*.amrfinder.out" -print0 | xargs -0 awk 'FNR==1 && NR!=1 {next;}{print}' > ${AMRFINDER_RES}/final_amrfinder.tsv
+mkdir -p ${AMRFINDER_RES}/eachSample
+mv ${AMRFINDER_RES}/*.txt ${AMRFINDER_RES}/eachSample
+mv ${AMRFINDER_RES}/*.out  ${AMRFINDER_RES}/eachSample
+
+# Print completion message
+echo -e "\n\033[1m\033[92m ======= $(date +"%Y-%m-%d %T"): AMR ANALYSIS FOR $ORGANISM_NAME COMPLETED... ======= \033[0m\n"
+
+echo -e "\n\033[1m\033[92m ======= $(date +"%Y-%m-%d %T"): FINAL RESULTS written in $INSTALL_DIR/AMR-Results/$ORGANISM_NAME ======= \033[0m\n"
+
+EOF
 
 
-# Print this only when Nextflow Run is sucessfully completed for all samples
-
-echo -e "\n\033[1m\033[92m ======= $(date +"%Y-%m-%d %T"): AMR ANALYSIS COMPLETED... ======= \033[0m\n"
+chmod +x $INSTALL_DIR/$ORGANISM_NAME.sh
