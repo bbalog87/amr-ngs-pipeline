@@ -108,9 +108,9 @@ The pipeline supports the following bacterial species:
 
 The test dataset include Illumina piared-sequencing data for the following three bacterial species:
 
-| Bacterial Species     | Characteristics                              | MLST Scheme                                          |
+| Bacterial Species     | organism name                            | MLST Scheme                                          |
 |-----------------------|----------------------------------------------|------------------------------------------------------|
-| Escherichia coli      | Gram-negative, facultative anaerobe, commonly found in the human gut and can cause urinary tract infections and gastrointestinal illnesses. | ecoli |
+| [Escherichia coli](https://drive.google.com/drive/folders/1Ni-8eZ1VAL24pdgJOlFB_X40XRtt97rK?usp=sharing)      | Escherichia  | ecoli |
 | Staphylococcus aureus  | Gram-positive, cocci-shaped, facultative anaerobe, commonly found on human skin and can cause skin infections and food poisoning. | saureus |
 | Acinetobacter baumannii | Gram-negative, coccobacillus-shaped, aerobic or facultative anaerobic, commonly found in soil and water and can cause infections in healthcare settings. | abaumannii_2 |
 
