@@ -117,7 +117,7 @@ The test dataset include Illumina piared-sequencing data for the following three
 ```
 bash amrFlow_setup.sh --reads AcinetobacterReads  --organism Acinetobacter_baumannii --mlst abaumannii_2
 ```
-This will launch the setup script on ypour system.
+This will launch the setup script on your system.
    
 ![ray-so-export(4)](https://user-images.githubusercontent.com/37578252/232754856-0701e66c-f24a-408b-bbf6-f80ff7d93c3c.png)
 Since my system was already setup with this species (```Acinetobacter_baumannii```), some setuop step are just skipped with a notification.
@@ -130,7 +130,7 @@ Once the setup is successfully complete without errors, we should see this messa
 
 3. Copy and paste the the command ```bash /home/nguinkal/amrFlow/Acinetobacter_baumannii.sh``` in the terminal, then press ENTER.
 
-If everything works fine, you should see a simimar ouput 
+If everything works fine, you should see a simimar ouput: 
 
 ![ray-so-export(6)](https://user-images.githubusercontent.com/37578252/232759602-f8ce4c83-ec31-42af-a318-ce178729ffae.png)
 
@@ -141,5 +141,5 @@ If everything works fine, you should see a simimar ouput
 
 **On my computer, the maximum running time for each species was ~30 min including the setup**
 
-**NOTE**: you may run your own larger dadatset (overnight), if the provided sample data run without errors on yopur system.
-However I tested the pipeline only for up to 22 samples in a single run. Your RAM might be limited for too large datasets.
+**NOTE**: you may run your own larger dataset (overnight), if the provided sample data run without errors on your system.
+However, I tested the pipeline only for up to 22 samples in a single run. Your RAM might be limited for too large datasets.
