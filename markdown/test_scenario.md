@@ -89,7 +89,7 @@ The pipeline supports the following bacterial species:
 
 ## Test Scenario
 
-1. Deposit PE illumina reds in a folder. Reads should be in the NCBI naming format.
+1. Download the provided test datasets. Note that, only the NCBI naming format is currently supported.
 
 | **Sample naming mode** |                            **Patterns**                                                                                        |
 |------------------------|-----------------------------------------------------------------------------------------------------|
