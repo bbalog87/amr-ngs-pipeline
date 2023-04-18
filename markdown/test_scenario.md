@@ -11,11 +11,12 @@ The following software tools are required to run the pipeline:
 - Laptop/computrer with at least 16 GB RAM, optimally 32 GB
 - Sufficient disc storage (> 50 GB free disc space)
 - Linux system (Tested with Ubuntu Debian 22.04 and Linux Mint V2.21)
+- Run locally on your laptop/Workstation
 
 
 ## Installation
 
-No active installaion is needed. The ```amrFlow_setup.sh``` script handles the installation of dependenceis and worflow environments automatically.
+No active installation is required. The ```amrFlow_setup.sh``` script handles the installation of dependencies and worflow environments automatically.
 
 This Bash script is used for setting up the system to running the antimicrobial resistance (AMR)
 analysis pipeline. 
@@ -97,13 +98,15 @@ The pipeline supports the following bacterial species:
 | FLEX                   | Any pattern that is neither NCBI nor Illumina. example : Sample1_NovaSeq_S1_L001_i7_index1_R1.fastq |
 | ILLUMINA               | SampleID_Lane_Index_ReadNumber.fastq  Example: Sample1_001_ATCGTA_L001_R1.fastq                     |
 
-The test datasets include Illumina piared-sequing data for the folwoinbg three bacterial species:
+
+
+The test dataset include Illumina piared-sequencing data for the following three bacterial species:
 
 | Bacterial Species     | Characteristics                              | MLST Scheme                                          |
 |-----------------------|----------------------------------------------|------------------------------------------------------|
 | Escherichia coli      | Gram-negative, facultative anaerobe, commonly found in the human gut and can cause urinary tract infections and gastrointestinal illnesses. | ecoli |
 | Staphylococcus aureus  | Gram-positive, cocci-shaped, facultative anaerobe, commonly found on human skin and can cause skin infections and food poisoning. | saureus |
-| Acinetobacter baumannii | Gram-negative, coccobacillus-shaped, aerobic or facultative anaerobic, commonly found in soil and water and can cause infections in healthcare settings. | A standard 7-locus MLST scheme is commonly used to subtype A. baumannii isolates. |
+| Acinetobacter baumannii | Gram-negative, coccobacillus-shaped, aerobic or facultative anaerobic, commonly found in soil and water and can cause infections in healthcare settings. | abaumannii_2 |
 
 
 2. Open a terminal window and run the ```amrFlow_setup.sh``` script with no parameters to see the required inputs.
@@ -132,6 +135,11 @@ If everything works fine, you should see a simimar ouput
 ![ray-so-export(6)](https://user-images.githubusercontent.com/37578252/232759602-f8ce4c83-ec31-42af-a318-ce178729ffae.png)
 
 
-4. If no error occurs, and the pipeline compolete sucessfully, you should see this final message:
+4. If no errors occur, and the pipeline compolete sucessfully, you should see this final message:
 
 ![ray-so-export(7)](https://user-images.githubusercontent.com/37578252/232760053-4bc0fb02-d561-4361-a265-233d5792103a.png)
+
+**On my computer, the maximum running time for each species was ~30 min including the setup**
+
+**NOTE**: you may run your own larger dadatset (overnight), if the provided sample data run without errors on yopur system.
+However I tested the pipeline only for up to 22 samples in a single run. Your RAM might be limited for too large datasets.
