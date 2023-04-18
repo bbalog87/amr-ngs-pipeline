@@ -86,3 +86,16 @@ The pipeline supports the following bacterial species:
 - Streptococcus_pyogenes
 - Vibrio_cholerae
 
+
+## Test Scenario
+
+1. Deposit PE illumina reds in a folder. Reads should be in the NCBI naming format.
+
+| **Sample naming mode** |                            **Patterns**                                                                                        |
+|------------------------|-----------------------------------------------------------------------------------------------------|
+| NCBI                   | SampleID_ReadNumber.fastq Example: Sample1_R2.fastq                                                 |
+| FLEX                   | Any pattern that is neither NCBI nor Illumina. example : Sample1_NovaSeq_S1_L001_i7_index1_R1.fastq |
+| ILLUMINA               | SampleID_Lane_Index_ReadNumber.fastq  Example: Sample1_001_ATCGTA_L001_R1.fastq                     |
+
+
+
