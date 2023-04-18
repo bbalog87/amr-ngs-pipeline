@@ -33,7 +33,7 @@ To install the pipeline, follow these steps:
 To use the pipeline, run the following command in a Bash shell:
 
 ```
-bash runAMR_workflow.sh [OPTIONS]
+bash amrFlow_setup.sh -h
 ```
 
 The following options are available:
@@ -45,11 +45,21 @@ The following options are available:
 
 ### Example
 
-To run the pipeline on sequencing reads in the directory `~/reads`, for the bacterial species `Escherichia` using the `Achtman` MLST scheme, run the following command:
+To run the pipeline on sequencing reads in the directory `~/reads`, for the bacterial species `Escherichia` using the `ecoli` MLST scheme, run the following command:
 
 ```
-bash runAMR_workflow.sh -r ~/reads -o Escherichia -s Achtman
+bash amrFlow_setup.sh  -r ~/reads -o Escherichia -s ecoli
+
 ```
+If sucesfull, this script will crreate Nextflow script in ```~/amrFlow/Escherichia.sh```, which can be execvuted with
+
+```
+bash ~/amrFlow/Escherichia.sh
+
+```
+
+
+The supported MLST scheme are provided [HERE](https://github.com/bbalog87/amr-ngs-pipeline/blob/main/markdown/mlst_sheme.md)
 
 ## Supported species
 
