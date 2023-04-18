@@ -102,4 +102,12 @@ The pipeline supports the following bacterial species:
 
 ![ray-so-export(3)](https://user-images.githubusercontent.com/37578252/232752731-397f7673-464b-4d10-ba71-464b4d046405.png)
 
+2. For Acinetobacter_baumannii, the command will be as follow
+```
+bash amrFlow_setup.sh --reads AcinetobacterReads  --organism Acinetobacter_baumannii --mlst abaumannii_2
+```
+This will launch the setup script on ypour system.
    
+![ray-so-export(4)](https://user-images.githubusercontent.com/37578252/232754856-0701e66c-f24a-408b-bbf6-f80ff7d93c3c.png)
+Since my system was already setup with this species (```Acinetobacter_baumannii```), some setuop step are just skipped with a notification.
+THe first time you run this cript cas takes uop to 30 mins to complete. 
