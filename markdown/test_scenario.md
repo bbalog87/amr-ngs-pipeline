@@ -110,4 +110,9 @@ This will launch the setup script on ypour system.
    
 ![ray-so-export(4)](https://user-images.githubusercontent.com/37578252/232754856-0701e66c-f24a-408b-bbf6-f80ff7d93c3c.png)
 Since my system was already setup with this species (```Acinetobacter_baumannii```), some setuop step are just skipped with a notification.
-THe first time you run this cript cas takes uop to 30 mins to complete. 
+THe first time you run this cript cas takes up to 30 min to complete. 
+
+Once the setup is successfully complete without errors, we should see this message in the terminal
+
+
+![ray-so-export(5)](https://user-images.githubusercontent.com/37578252/232757401-ccaa09e8-a9b7-42a6-95de-fdc590934bb6.png)
