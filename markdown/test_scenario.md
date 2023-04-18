@@ -10,32 +10,23 @@ This pipeline is designed to analyze NGS (Illumina PE) antimicrobial resistance 
 The following software tools are required to run the pipeline:
 - Laptop/computrer with at least 16 GB RAM, optimally 32 GB
 - Sufficient disc storage (> 50 GB free disc space)
-- Linux system (Tested with Ubuntu Debian 22.04 and Linux Mint V2.21
+- Linux system (Tested with Ubuntu Debian 22.04 and Linux Mint V2.21)
 
 
 ## Installation
 
+No active installaion is needed. The ```amrFlow_setup.sh``` script handles the installation of dependenceis and worflow environments automatically.
+
+This Bash script is used for setting up the system to running the antimicrobial resistance (AMR)
+analysis pipeline. 
+ - The setup script need to be executed for a each species.
+ - Howver, the subsquent setup will be more light and faster since the syetmns will alred have the required tools and packages.
+ - If the reads path, organism name, and MLST scheme are not provided, an error message is displayed. It also checks if the provided organism name 
+   is in the valid species list of supported organisms (mainly GLASS priority pathogens).
+
 To install the pipeline, follow these steps:
 
-1. Clone the repository using Git:
 
-   ```
-   git clone https://github.com/bbalog87/amr-ngs-pipeline.git
-   ```
-
-2. Change directory to the repository:
-
-   ```
-   cd amr-ngs-pipeline
-   ```
-
-3. Create a new Conda environment and install the required packages:
-
-   ```
-   conda create --name amrFlow
-   conda activate amrFlow
-   conda install --file requirements.txt
-   ```
 
 ## Usage
 
