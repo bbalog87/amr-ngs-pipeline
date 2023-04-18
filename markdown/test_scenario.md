@@ -104,7 +104,7 @@ The pipeline supports the following bacterial species:
 | ILLUMINA               | SampleID_Lane_Index_ReadNumber.fastq  Example: Sample1_001_ATCGTA_L001_R1.fastq                     |
 
 
-
+### Test dataset
 The test dataset include Illumina piared-sequencing data for the following three bacterial species:
 
 | Bacterial Species     | Characteristics                              | MLST Scheme                                          |
