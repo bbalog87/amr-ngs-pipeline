@@ -101,8 +101,8 @@ The test datasets include Illumina piared-sequing data for the folwoinbg three b
 
 | Bacterial Species     | Characteristics                              | MLST Scheme                                          |
 |-----------------------|----------------------------------------------|------------------------------------------------------|
-| Escherichia coli      | Gram-negative, facultative anaerobe, commonly found in the human gut and can cause urinary tract infections and gastrointestinal illnesses. | A standard 7-locus MLST scheme is commonly used to subtype E. coli isolates. |
-| Staphylococcus aureus  | Gram-positive, cocci-shaped, facultative anaerobe, commonly found on human skin and can cause skin infections and food poisoning. | A standard 7-locus MLST scheme is commonly used to subtype S. aureus isolates. |
+| Escherichia coli      | Gram-negative, facultative anaerobe, commonly found in the human gut and can cause urinary tract infections and gastrointestinal illnesses. | ecoli |
+| Staphylococcus aureus  | Gram-positive, cocci-shaped, facultative anaerobe, commonly found on human skin and can cause skin infections and food poisoning. | saureus |
 | Acinetobacter baumannii | Gram-negative, coccobacillus-shaped, aerobic or facultative anaerobic, commonly found in soil and water and can cause infections in healthcare settings. | A standard 7-locus MLST scheme is commonly used to subtype A. baumannii isolates. |
 
 
