@@ -46,8 +46,8 @@ The following command line paramaters are displayed:
 
 ### Example
 - Downlaod the test dataset for each organism.
-- Move them in a place easily accesible (e.g. Home directory).
-- Open a terminal and move into the folder ```cd EcoliReads```, the type ```gunzip * ```to decompresse the reads files.
+- Move them into a place easily accesible (e.g. Home directory).
+- Open a terminal and move into the folder ```cd EcoliReads```, and type ```gunzip * ```to decompress the reads files.
 - Copy the setup_script ```amrFlow_setup.sh``` somewhere easily accesible on your computer (e.g. $HOME).
 
 
