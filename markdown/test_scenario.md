@@ -20,12 +20,12 @@ No active installation is required. The ```amrFlow_setup.sh``` script handles th
 
 This Bash script is used for setting up the system to running the antimicrobial resistance (AMR)
 analysis pipeline. 
- - The setup script needs to be executed for a each species to creat the specific paramaters for that organism.
- - Howver, the subsquent setup will be more light and faster since the syetmns will alred have the required tools and packages.
+ - The setup script needs to be executed for each species to create the specific paramaters for that organism.
+ - Howver, the subsquent setup will be more light and faster since the syetem will already have the required tools and packages.
  - If the reads path, organism name, and MLST scheme are not provided, an error message is displayed. It also checks if the provided organism name 
    is in the valid species list of supported organisms (mainly GLASS priority pathogens).
 
-To install the pipeline, follow these steps:
+To run the pipeline, follow these steps:
 
 
 
@@ -37,7 +37,7 @@ To use the pipeline, run the following command in a Bash shell:
 bash amrFlow_setup.sh -h
 ```
 
-The following options are available:
+The following command line paramaters are displayed:
 
 - `-r` or `--reads`: Path to the directory containing the sequencing reads (REQUIRED)
 - `-o` or `--organism`: Name of the bacterial species (REQUIRED)
@@ -52,7 +52,7 @@ To run the pipeline on sequencing reads in the directory `~/reads`, for the bact
 bash amrFlow_setup.sh  -r ~/reads -o Escherichia -s ecoli
 
 ```
-If sucesfull, this script will crreate Nextflow script in ```~/amrFlow/Escherichia.sh```, which can be execvuted with
+If sucessfull, this script will crreate the Nextflow script in ```~/amrFlow/Escherichia.sh```, which can be executed with
 
 ```
 bash ~/amrFlow/Escherichia.sh
