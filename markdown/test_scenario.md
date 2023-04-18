@@ -16,7 +16,7 @@ The following software tools are required to run the pipeline:
 
 ## Installation
 
-No active installation is required. The ```amrFlow_setup.sh``` script handles the installation of dependencies and worflow environments automatically.
+No active installation is required. The ```amrFlow_setup.sh``` script handles the installation of dependencies and workflow environments automatically.
 
 This Bash script is used for setting up the system to running the antimicrobial resistance (AMR)
 analysis pipeline. 
