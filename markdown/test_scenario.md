@@ -97,6 +97,14 @@ The pipeline supports the following bacterial species:
 | FLEX                   | Any pattern that is neither NCBI nor Illumina. example : Sample1_NovaSeq_S1_L001_i7_index1_R1.fastq |
 | ILLUMINA               | SampleID_Lane_Index_ReadNumber.fastq  Example: Sample1_001_ATCGTA_L001_R1.fastq                     |
 
+The test datasets include Illumina piared-sequing data for the folwoinbg three bacterial species:
+
+| Bacterial Species     | Characteristics                              | MLST Scheme                                          |
+|-----------------------|----------------------------------------------|------------------------------------------------------|
+| Escherichia coli      | Gram-negative, facultative anaerobe, commonly found in the human gut and can cause urinary tract infections and gastrointestinal illnesses. | A standard 7-locus MLST scheme is commonly used to subtype E. coli isolates. |
+| Staphylococcus aureus  | Gram-positive, cocci-shaped, facultative anaerobe, commonly found on human skin and can cause skin infections and food poisoning. | A standard 7-locus MLST scheme is commonly used to subtype S. aureus isolates. |
+| Acinetobacter baumannii | Gram-negative, coccobacillus-shaped, aerobic or facultative anaerobic, commonly found in soil and water and can cause infections in healthcare settings. | A standard 7-locus MLST scheme is commonly used to subtype A. baumannii isolates. |
+
 
 2. Open a terminal window and run the ```amrFlow_setup.sh``` script with no parameters to see the required inputs.
 
