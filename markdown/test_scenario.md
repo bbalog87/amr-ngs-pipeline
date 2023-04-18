@@ -31,7 +31,7 @@ To run the pipeline, follow these steps:
 
 ## Usage
 
-To use the pipeline, run the following command in a Bash shell:
+To use the pipeline, run the following command:
 
 ```
 bash amrFlow_setup.sh -h
