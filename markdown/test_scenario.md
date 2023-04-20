@@ -10,8 +10,8 @@ This pipeline is designed to analyze NGS (Illumina PE) antimicrobial resistance 
 The following software tools are required to run the pipeline:
 - Laptop/computrer with at least 16 GB RAM, optimally 32 GB
 - Sufficient disc storage (> 50 GB free disc space)
-- Linux system (Tested with Ubuntu Debian 22.04 and Linux Mint V2.21)
-- Run locally on your laptop/Workstation
+- Linux system (tested with Ubuntu Debian 22.04 and Linux Mint V2.21)
+- Run locally on your laptop/workstation
 
 
 ## Installation
