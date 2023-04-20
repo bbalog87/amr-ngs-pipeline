@@ -99,7 +99,7 @@ The pipeline supports the following bacterial species:
 | **Sample naming mode** |                            **Patterns**                                                                                        |
 |------------------------|-----------------------------------------------------------------------------------------------------|
 | NCBI                   | SampleID_ReadNumber.fastq. Example: Sample1_R1.fastq and Sample1_R2.fastq                                                 |
-| FLEX                   | Any pattern that is neither NCBI nor Illumina. example : Sample1_NovaSeq_S1_L001_i7_index1_R1.fastq |
+| FLEX                   | Any pattern that is neither NCBI nor Illumina. Example : Sample1_NovaSeq_S1_L001_i7_index1_R1.fastq |
 | ILLUMINA               | SampleID_Lane_Index_ReadNumber.fastq  Example: Sample1_001_ATCGTA_L001_R1.fastq                     |
 
 
