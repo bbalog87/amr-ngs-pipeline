@@ -25,7 +25,6 @@ analysis pipeline.
  - If the reads path, organism name, and MLST scheme are not provided, an error message is displayed. It also checks if the provided organism name 
    is in the valid species list of supported organisms (mainly GLASS priority pathogens).
 
-To run the pipeline, follow these steps:
 
 
 
