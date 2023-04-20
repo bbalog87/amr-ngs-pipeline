@@ -135,7 +135,7 @@ Once the setup is successfully complete without errors, you should see this mess
 
 3. Copy and paste the the command ```bash /home/nguinkal/amrFlow/Acinetobacter_baumannii.sh``` in your terminal, then press ENTER.
 
-If everything works fine, you should see a simimar ouput: 
+If everything works fine, you should see a simimar output: 
 
 ![ray-so-export(6)](https://user-images.githubusercontent.com/37578252/232759602-f8ce4c83-ec31-42af-a318-ce178729ffae.png)
 
