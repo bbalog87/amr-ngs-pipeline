@@ -144,7 +144,7 @@ If everything works fine, you should see a simimar ouput:
 
 ![ray-so-export(7)](https://user-images.githubusercontent.com/37578252/232760053-4bc0fb02-d561-4361-a265-233d5792103a.png)
 
-**On my computer, the maximum running time for each species was ~30 min including the setup**
+**On my computer, the maximum run time for each species was ~30 min including the setup**
 
 **NOTE**: you may run your own larger dataset (overnight), if the provided sample data run without errors on your system.
 However, I tested the pipeline only for up to 22 samples in a single run. Your RAM might be limited for too large datasets.
