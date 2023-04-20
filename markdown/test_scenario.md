@@ -56,7 +56,7 @@ To run the pipeline on sequencing reads in the directory `~/EcoliReads` for the 
 bash amrFlow_setup.sh  -r ~/EcoliReads -o Escherichia -s ecoli
 
 ```
-If sucessfull, this script will crreate the Nextflow script in ```~/amrFlow/Escherichia.sh```, which can be executed with
+If sucessfull, this script will create the Nextflow script in ```~/amrFlow/Escherichia.sh```, which can be executed with
 
 ```
 bash ~/amrFlow/Escherichia.sh
