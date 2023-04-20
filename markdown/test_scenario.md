@@ -126,7 +126,7 @@ This will launch the setup script on your system.
    
 ![ray-so-export(4)](https://user-images.githubusercontent.com/37578252/232754856-0701e66c-f24a-408b-bbf6-f80ff7d93c3c.png)
 Since my system was already setup with this species (```Acinetobacter_baumannii```), some setup steps are skipped with a notification.
-The first time you run this script, all required databases will be downloaded. The whole setup process takes **around 25 min to complete*. 
+The first time you run this script, all required databases will be downloaded. The whole setup process takes **around 25 min to complete**. 
 
 Once the setup is successfully complete without errors, you should see this message in the terminal
 
