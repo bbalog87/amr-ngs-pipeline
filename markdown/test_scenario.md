@@ -45,12 +45,12 @@ The following command line paramaters are displayed:
 
 ### Example
 - Download the [test dataset](https://drive.google.com/drive/folders/14-przGBpKcNxwNTRI96iyYCcdny81hKj?usp=sharing) for each organism.
-- Move them into a place easily accesible (e.g. Home directory).
+- Move/copy them into a place easily accessible (e.g. Home directory).
 - Open a terminal and move into the folder ```cd EcoliReads```, and type ```gunzip * ```to decompress the reads files.
-- Copy the setup_script ```amrFlow_setup.sh``` somewhere easily accesible on your computer (e.g. $HOME).
+- Copy the setup_script ```amrFlow_setup.sh``` somewhere easily accessible on your computer (e.g. $HOME).
 
 
-To run the pipeline on sequencing reads in the directory `~/EcoliReads`, for the bacterial species `Escherichia` using the `ecoli` MLST scheme, run the following command:
+To run the pipeline on sequencing reads in the directory `~/EcoliReads` for the bacterial species `Escherichia` using the `ecoli` MLST scheme, run the following command:
 
 ```
 bash amrFlow_setup.sh  -r ~/EcoliReads -o Escherichia -s ecoli
