@@ -140,7 +140,7 @@ If everything works fine, you should see a simimar output:
 ![ray-so-export(6)](https://user-images.githubusercontent.com/37578252/232759602-f8ce4c83-ec31-42af-a318-ce178729ffae.png)
 
 
-4. If no errors occur, and the all processes run sucessfully, you should see this final message:
+4. If no errors occur, and all processes run sucessfully, you should see this final message:
 
 ![ray-so-export(7)](https://user-images.githubusercontent.com/37578252/232760053-4bc0fb02-d561-4361-a265-233d5792103a.png)
 
