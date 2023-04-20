@@ -44,7 +44,7 @@ The following command line paramaters are displayed:
 - `-h` or `--help`: Display help message and exit
 
 ### Example
-- Download the test dataset for each organism.
+- Download the [test dataset](https://drive.google.com/drive/folders/14-przGBpKcNxwNTRI96iyYCcdny81hKj?usp=sharing) for each organism.
 - Move them into a place easily accesible (e.g. Home directory).
 - Open a terminal and move into the folder ```cd EcoliReads```, and type ```gunzip * ```to decompress the reads files.
 - Copy the setup_script ```amrFlow_setup.sh``` somewhere easily accesible on your computer (e.g. $HOME).
