@@ -149,6 +149,7 @@ If everything works fine, you should see a simimar ouput:
 **NOTE**: you may run your own larger dataset (overnight), if the provided sample data run without errors on your system.
 However, I tested the pipeline only for up to 22 samples in a single run. Your RAM might be limited for too large datasets.
 
+
 ## Error Tests
 - Running the pipeline with a mispelled species name (should exit with error)
 - A MLST scheme that is not supported will also make nextflow to throw an error.
